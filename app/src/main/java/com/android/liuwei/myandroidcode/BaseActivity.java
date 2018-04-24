@@ -1,5 +1,7 @@
 package com.android.liuwei.myandroidcode;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +17,12 @@ import butterknife.Unbinder;
  */
 public abstract class BaseActivity extends AppCompatActivity
 {
+    // start a activity
+    public static void startActivity(Context context, Class<?> activityClass)
+    {
+        context.startActivity(new Intent(context, activityClass));
+    }
+
     private String TAG = getClass().getSimpleName();
     private Unbinder mButterKnife;
 
@@ -25,8 +33,12 @@ public abstract class BaseActivity extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
 
+        setContentView(getActivityLayout());
+
         mButterKnife = ButterKnife.bind(this);
     }
+
+    protected abstract int getActivityLayout();
 
     @Override
     protected void onStart()

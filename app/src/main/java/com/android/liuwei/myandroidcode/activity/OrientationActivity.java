@@ -1,9 +1,7 @@
 package com.android.liuwei.myandroidcode.activity;
 
-import android.content.Context;
-import android.content.Intent;
-
 import com.android.liuwei.myandroidcode.BaseActivity;
+import com.android.liuwei.myandroidcode.R;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
@@ -12,8 +10,9 @@ import com.android.liuwei.myandroidcode.BaseActivity;
  */
 public class OrientationActivity extends BaseActivity
 {
-    public static void startActivity(Context context)
+    @Override
+    protected int getActivityLayout()
     {
-        context.startActivity(new Intent(context, OrientationActivity.class));
+        return R.layout.activity_orientation;
     }
 }

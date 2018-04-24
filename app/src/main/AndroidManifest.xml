@@ -24,6 +24,16 @@
             android:name=".activity.OrientationActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensorLandscape" />
+        <activity android:name=".activity.LinkActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--<category android:name="android.intent.category.BROWSABLE" />-->
+
+                <!--<data android:scheme="nlnflgp" />-->
+            <!--</intent-filter>-->
+        </activity>
     </application>
 
 </manifest>

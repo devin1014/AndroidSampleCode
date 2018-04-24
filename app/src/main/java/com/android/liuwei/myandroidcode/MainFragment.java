@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.liuwei.myandroidcode.activity.LinkActivity;
 import com.android.liuwei.myandroidcode.activity.OrientationActivity;
 import com.android.liuwei.myandroidcode.widget.ListAdapter;
 import com.android.liuwei.myandroidcode.widget.ListAdapter.Callback;
@@ -46,6 +47,7 @@ public class MainFragment extends BaseFragment
 
     private ListAdapter.Callback mCallback = new Callback()
     {
+        @SuppressWarnings("ConstantConditions")
         @Override
         public void onItemClick(String name)
         {
@@ -53,7 +55,13 @@ public class MainFragment extends BaseFragment
             {
                 case MenuList.MENU_ORIENTATION:
 
-                    OrientationActivity.startActivity(getActivity());
+                    OrientationActivity.startActivity(getActivity(), OrientationActivity.class);
+
+                    break;
+
+                case MenuList.MENU_LINK:
+
+                    LinkActivity.startActivity(getActivity(), LinkActivity.class);
 
                     break;
             }

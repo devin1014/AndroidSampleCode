@@ -12,11 +12,15 @@ public class MenuList
 {
     public static final String MENU_ORIENTATION="Orientation";
 
+    public static final String MENU_LINK="Link";
+
     private static List<String> MENUS = new ArrayList<>();
 
     static
     {
         MENUS.add(MENU_ORIENTATION);
+
+        MENUS.add(MENU_LINK);
     }
 
     public static List<String> getMenus()
