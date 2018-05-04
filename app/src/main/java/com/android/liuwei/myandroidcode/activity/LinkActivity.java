@@ -35,14 +35,33 @@ public class LinkActivity extends BaseActivity
     {
     }
 
-    @OnClick(R.id.link_action)
-    public void linkAction()
+    @OnClick(R.id.link_channel_1)
+    public void link2Channel1()
     {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_BROWSABLE);
-        //intent.addCategory(Intent.CATEGORY_DEFAULT);
-        intent.setData(Uri.parse("nlnflgp://network"));
+        intent.setData(Uri.parse("cntvlink://channel?id=1"));
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.link_channel_2)
+    public void link2Channel2()
+    {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("cntvlink://channel?id=2"));
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.link_schedule)
+    public void link2Schedule()
+    {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("cntvlink://schedule"));
         startActivity(intent);
     }
 }
