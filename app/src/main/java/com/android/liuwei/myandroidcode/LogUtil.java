@@ -36,4 +36,12 @@ public class LogUtil
             Log.w(TAG + tag, message);
         }
     }
+
+    public static void logError(String tag, String message)
+    {
+        if (DEBUG)
+        {
+            Log.e(TAG + tag, message);
+        }
+    }
 }

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.android.liuwei.myandroidcode.activity.LinkActivity;
 import com.android.liuwei.myandroidcode.activity.OrientationActivity;
 import com.android.liuwei.myandroidcode.cookie.CookieActivity;
+import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.widget.ListAdapter;
 import com.android.liuwei.myandroidcode.widget.ListAdapter.Callback;
 
@@ -69,6 +70,12 @@ public class MainFragment extends BaseFragment
                 case MenuList.MENU_COOKIE:
 
                     CookieActivity.startActivity(getActivity(), CookieActivity.class);
+
+                    break;
+
+                case MenuList.MENU_DEVICE_INFO:
+
+                    DeviceInfoActivity.startActivity(getActivity(), DeviceInfoActivity.class);
 
                     break;
             }
