@@ -17,6 +17,7 @@ import android.os.Build.VERSION_CODES;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.liuwei.myandroidcode.LogUtil;
 
@@ -352,15 +353,40 @@ public class DeviceUtil
         return "android_" + VERSION.RELEASE;
     }
 
-    public static String getMacString()
+    public static String getMacString(Context context)
     {
+        String networkType = "";
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if (connectivityManager != null)
+        {
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+            if (networkInfo != null)
+            {
+                if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI)
+                {
+                    networkType = "wlan0";
+                }
+                else if (networkInfo.getType() == ConnectivityManager.TYPE_ETHERNET)
+                {
+                    networkType = "eth0";
+                }
+                else if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE)
+                {
+                    networkType = "wlan0";
+                }
+            }
+        }
+
         try
         {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
             while (networkInterfaces.hasMoreElements())
             {
                 NetworkInterface networkInterface = networkInterfaces.nextElement();
-                if (!networkInterface.getName().equalsIgnoreCase("wlan0"))
+                if (!TextUtils.isEmpty(networkType) && !networkInterface.getName().equalsIgnoreCase(networkType))
                 {
                     continue;
                 }
@@ -378,6 +404,7 @@ public class DeviceUtil
                 {
                     stringBuffer.deleteCharAt(stringBuffer.length() - 1);
                 }
+                Log.w("network_mac_info", networkInterface.getName() + ":" + stringBuffer.toString());
                 return stringBuffer.toString();
             }
         }

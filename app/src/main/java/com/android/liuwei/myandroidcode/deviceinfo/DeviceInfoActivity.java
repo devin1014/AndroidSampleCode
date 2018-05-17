@@ -45,7 +45,7 @@ public class DeviceInfoActivity extends BaseActivity
         String deviceId = DeviceUtil.getDeviceId(this);
         mDeviceId.setText(deviceId != null ? deviceId : "null");
 
-        String mac = DeviceUtil.getMacString();
+        String mac = DeviceUtil.getMacString(this);
         mDeviceMac.setText(mac != null ? mac : "null");
 
         DeviceInfo info = DeviceInfoHelper.getDeviceInfo(this);
