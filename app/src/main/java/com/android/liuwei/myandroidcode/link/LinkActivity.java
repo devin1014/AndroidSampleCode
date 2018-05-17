@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.activity;
+package com.android.liuwei.myandroidcode.link;
 
 import android.content.Intent;
 import android.net.Uri;

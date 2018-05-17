@@ -73,6 +73,14 @@ public class WebViewFragment extends BaseFragment
         mWebView.loadUrl(mEditText.getText().toString());
     }
 
+    @Override
+    public void onDestroyView()
+    {
+        mWebView.destroy();
+
+        super.onDestroyView();
+    }
+
     private class MyWebChromeClient extends WebChromeClient
     {
         @Override

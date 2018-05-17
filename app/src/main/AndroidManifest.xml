@@ -26,10 +26,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.OrientationActivity"
+            android:name=".orientation.OrientationActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensorLandscape" />
-        <activity android:name=".activity.LinkActivity">
+        <activity android:name=".link.LinkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

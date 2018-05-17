@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.liuwei.myandroidcode.activity.LinkActivity;
-import com.android.liuwei.myandroidcode.activity.OrientationActivity;
+import com.android.liuwei.myandroidcode.link.LinkActivity;
+import com.android.liuwei.myandroidcode.orientation.OrientationActivity;
 import com.android.liuwei.myandroidcode.cookie.CookieActivity;
 import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.widget.ListAdapter;

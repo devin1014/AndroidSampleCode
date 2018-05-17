@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.activity;
+package com.android.liuwei.myandroidcode.orientation;
 
 import com.android.liuwei.myandroidcode.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
