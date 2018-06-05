@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatEditText
-        android:id="@+id/edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="http://www.baidu.com" />
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </WebView>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ProgressBar
+        android:id="@+id/webview_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:max="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <WebView
-            android:id="@+id/web_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <ProgressBar
+        android:id="@+id/webview_loading"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/webview"
+        app:layout_constraintStart_toStartOf="@id/webview"
+        app:layout_constraintTop_toTopOf="@id/webview" />
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:max="100" />
-
-    </FrameLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatEditText;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,28 +26,22 @@ import butterknife.BindView;
  */
 public class WebViewFragment extends BaseFragment
 {
-    @BindView(R.id.edit_text)
-    AppCompatEditText mEditText;
-    @BindView(R.id.web_view)
+    @BindView(R.id.webview)
     WebView mWebView;
-    @BindView(R.id.progress_bar)
+    @BindView(R.id.webview_progress)
     ProgressBar mProgressBar;
-
-    private ConnectCallback mCallback;
+    @BindView(R.id.webview_loading)
+    ProgressBar mLoadingView;
 
     @Override
     public void onAttach(Context context)
     {
         super.onAttach(context);
-
-        mCallback = (ConnectCallback) context;
     }
 
     @Override
     public void onDetach()
     {
-        mCallback = null;
-
         super.onDetach();
     }
 
@@ -63,14 +56,21 @@ public class WebViewFragment extends BaseFragment
     {
         super.onViewCreated(view, savedInstanceState);
 
+        //CookieSyncManager.createInstance(this);
+        //CookieSyncManager.getInstance().sync();
+        //android.webkit.CookieManager.getInstance().setAcceptCookie(true);
+
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setLoadWithOverviewMode(false);
         webSettings.setUseWideViewPort(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setDisplayZoomControls(true);
 
         mWebView.setWebChromeClient(new MyWebChromeClient());
         mWebView.setWebViewClient(new MyWebViewClient());
-        mWebView.loadUrl(mEditText.getText().toString());
+        mWebView.loadUrl(CookieActivity.URL_VIP_SPORTS);
     }
 
     @Override
@@ -87,6 +87,7 @@ public class WebViewFragment extends BaseFragment
         public void onProgressChanged(WebView view, int newProgress)
         {
             mProgressBar.setProgress(newProgress);
+            mProgressBar.setVisibility(newProgress == 100 ? View.GONE : View.VISIBLE);
         }
     }
 
@@ -95,18 +96,21 @@ public class WebViewFragment extends BaseFragment
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon)
         {
-            mProgressBar.setVisibility(View.VISIBLE);
+            mLoadingView.setVisibility(View.VISIBLE);
         }
 
         @Override
         public void onPageFinished(WebView view, String url)
         {
-            mProgressBar.setVisibility(View.GONE);
+            mLoadingView.setVisibility(View.GONE);
+        }
 
-            if (url.equalsIgnoreCase(mEditText.getText().toString()))
-            {
-                mCallback.onConnectComplete(url);
-            }
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url)
+        {
+            view.loadUrl(url);
+
+            return true;
         }
     }
 }

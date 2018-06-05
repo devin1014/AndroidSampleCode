@@ -2,20 +2,14 @@ package com.android.liuwei.myandroidcode.cookie;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.widget.TextView;
 
 import com.android.liuwei.myandroidcode.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
-
-import java.net.CookieHandler;
-import java.net.CookieManager;
-import java.net.CookieStore;
-import java.net.HttpCookie;
-import java.util.List;
 
 import butterknife.BindView;
 
@@ -24,14 +18,14 @@ import butterknife.BindView;
  * Date: 2018-05-04
  * Time: 15:54
  */
-public class CookieActivity extends BaseActivity implements ConnectCallback
+public class CookieActivity extends BaseActivity
 {
+    public static final String URL_VIP_SPORTS = "http://vip.sports.cctv.com/";
+
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
-    @BindView(R.id.cookie_value)
-    TextView mCookieTextView;
-    @BindView(R.id.webview_cookie_value)
-    TextView mWebViewCookieTextView;
+    @BindView(R.id.tab_layout)
+    TabLayout mTabLayout;
 
     @Override
     protected int getActivityLayout()
@@ -44,44 +38,15 @@ public class CookieActivity extends BaseActivity implements ConnectCallback
     {
         super.onCreate(savedInstanceState);
 
-        CookieManager cookieManager = new CookieManager();
-        CookieHandler.setDefault(cookieManager);
-
-        //CookieSyncManager.createInstance(this);
-        //CookieSyncManager.getInstance().sync();
-        android.webkit.CookieManager.getInstance().setAcceptCookie(true);
-
         mViewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
-    }
-
-    @Override
-    public void onConnectComplete(String url)
-    {
-        //url connection
-        mCookieTextView.setText("");
-
-        CookieManager cookieManager = (CookieManager) CookieHandler.getDefault();
-
-        CookieStore cookieStore = cookieManager.getCookieStore();
-
-        List<HttpCookie> cookieList = cookieStore.getCookies();
-
-        if (cookieList != null)
-        {
-            for (HttpCookie cookie : cookieList)
-            {
-                mCookieTextView.append(cookie.toString() + "\n");
-            }
-        }
-
-        //web view
-        mWebViewCookieTextView.setText("");
-
-        android.webkit.CookieManager.getInstance().getCookie("");
+        mViewPager.setOffscreenPageLimit(2);
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 
     private class MyAdapter extends FragmentPagerAdapter
     {
+        private final String[] TITLES = new String[]{"Cookie", "WebView", "Http"};
+
         MyAdapter(FragmentManager fm)
         {
             super(fm);
@@ -92,18 +57,29 @@ public class CookieActivity extends BaseActivity implements ConnectCallback
         {
             if (position == 0)
             {
-                return new URLConnectionFragment();
+                return new CookieFragment();
+            }
+            else if (position == 1)
+            {
+                return new WebViewFragment();
             }
             else
             {
-                return new WebViewFragment();
+                return new HttpFragment();
             }
         }
 
         @Override
         public int getCount()
         {
-            return 2;
+            return TITLES.length;
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position)
+        {
+            return TITLES[position];
         }
     }
 }

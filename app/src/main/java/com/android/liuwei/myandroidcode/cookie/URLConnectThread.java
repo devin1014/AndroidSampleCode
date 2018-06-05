@@ -1,5 +1,8 @@
 package com.android.liuwei.myandroidcode.cookie;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import com.android.liuwei.myandroidcode.util.IOUtils;
 
 import java.io.IOException;
@@ -24,11 +27,15 @@ public class URLConnectThread extends Thread
         void onResult(String result);
     }
 
-    public URLConnectThread(String url, URLConnectionCallback callback)
+    private Handler mHandler;
+
+    URLConnectThread(String url, URLConnectionCallback callback)
     {
         mConnectionUrl = url;
 
         mCallback = callback;
+
+        mHandler = new Handler(Looper.getMainLooper());
     }
 
     @Override
@@ -44,12 +51,21 @@ public class URLConnectThread extends Thread
 
             inputStream = urlConnection.getInputStream();
 
-            String result = IOUtils.parseInputStream(inputStream);
+            final String result = IOUtils.parseInputStream(inputStream);
 
-            if (mCallback != null)
+            mHandler.post(new Runnable()
             {
-                mCallback.onResult(result);
-            }
+                @Override
+                public void run()
+                {
+                    if (mCallback != null)
+                    {
+                        mCallback.onResult(result);
+                    }
+
+                    mCallback = null;
+                }
+            });
         }
         catch (MalformedURLException e)
         {
@@ -72,8 +88,6 @@ public class URLConnectThread extends Thread
                     e.printStackTrace();
                 }
             }
-
-            mCallback=null;
         }
     }
 }

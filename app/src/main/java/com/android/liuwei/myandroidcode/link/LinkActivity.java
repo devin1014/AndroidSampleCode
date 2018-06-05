@@ -35,6 +35,27 @@ public class LinkActivity extends BaseActivity
     {
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1000)
+        {
+
+        }
+    }
+
+    @OnClick(R.id.link_browser)
+    public void link2Browser()
+    {
+        Intent intent = new Intent();
+        intent.setData(Uri.parse("http://www.baidu.com"));
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        startActivityForResult(intent, 1000);
+    }
+
     @OnClick(R.id.link_channel_1)
     public void link2Channel1()
     {
@@ -62,6 +83,16 @@ public class LinkActivity extends BaseActivity
         intent.setAction(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_BROWSABLE);
         intent.setData(Uri.parse("cntvlink://schedule"));
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.link_activation)
+    public void link2Activation()
+    {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("cntvlink://account/tcl_activation?url=https://testevent.api.my7v.com/fifa/#/CardInput"));
         startActivity(intent);
     }
 }

@@ -24,7 +24,7 @@ public class IOUtils
         {
             builder.append(value).append("\n");
 
-            reader.readLine();
+            value = reader.readLine();
         }
 
         return builder.toString();
