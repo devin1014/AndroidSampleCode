@@ -52,7 +52,7 @@ public class HttpFragment extends BaseFragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        mEditText.setText(CookieActivity.URL_VIP_SPORTS);
+        mEditText.setText(CookieActivity.URL_CHECK_SESSION);
     }
 
     @OnClick(R.id.http_request)

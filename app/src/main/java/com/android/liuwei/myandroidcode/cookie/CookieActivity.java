@@ -21,6 +21,8 @@ import butterknife.BindView;
 public class CookieActivity extends BaseActivity
 {
     public static final String URL_VIP_SPORTS = "http://vip.sports.cctv.com/";
+    public static final String URL_CHECK_SESSION="http://vip.sports.cctv.com/passport/checkSSO.do";
+    public static final String URL_CHECK_DO="http://vip.sports.cctv.com/check.do";
 
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
