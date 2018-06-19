@@ -7,9 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.SparseArray;
 
 import com.android.liuwei.myandroidcode.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
+import com.android.liuwei.myandroidcode.base.BasePageFragment;
 
 import butterknife.BindView;
 
@@ -20,10 +23,6 @@ import butterknife.BindView;
  */
 public class CookieActivity extends BaseActivity
 {
-    public static final String URL_VIP_SPORTS = "http://vip.sports.cctv.com/";
-    public static final String URL_CHECK_SESSION="http://vip.sports.cctv.com/passport/checkSSO.do";
-    public static final String URL_CHECK_DO="http://vip.sports.cctv.com/check.do";
-
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
     @BindView(R.id.tab_layout)
@@ -40,6 +39,7 @@ public class CookieActivity extends BaseActivity
     {
         super.onCreate(savedInstanceState);
 
+        mViewPager.addOnPageChangeListener(mOnPageChangeListener);
         mViewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
         mViewPager.setOffscreenPageLimit(2);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -49,6 +49,8 @@ public class CookieActivity extends BaseActivity
     {
         private final String[] TITLES = new String[]{"Cookie", "WebView", "Http"};
 
+        private SparseArray<BasePageFragment> mSparseArray = new SparseArray<>(3);
+
         MyAdapter(FragmentManager fm)
         {
             super(fm);
@@ -57,18 +59,27 @@ public class CookieActivity extends BaseActivity
         @Override
         public Fragment getItem(int position)
         {
-            if (position == 0)
+            BasePageFragment fragment = mSparseArray.get(position);
+
+            if (fragment == null)
             {
-                return new CookieFragment();
+                if (position == 0)
+                {
+                    fragment = new CookieFragment();
+                }
+                else if (position == 1)
+                {
+                    fragment = new WebViewFragment();
+                }
+                else
+                {
+                    fragment = new HttpFragment();
+                }
+
+                mSparseArray.put(position, fragment);
             }
-            else if (position == 1)
-            {
-                return new WebViewFragment();
-            }
-            else
-            {
-                return new HttpFragment();
-            }
+
+            return fragment;
         }
 
         @Override
@@ -84,4 +95,38 @@ public class CookieActivity extends BaseActivity
             return TITLES[position];
         }
     }
+
+    private OnPageChangeListener mOnPageChangeListener = new OnPageChangeListener()
+    {
+        private int mCurrentPosition = -1;
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+        {
+        }
+
+        @Override
+        public void onPageSelected(int position)
+        {
+            FragmentPagerAdapter adapter = ((FragmentPagerAdapter) mViewPager.getAdapter());
+
+            if (mCurrentPosition != -1)
+            {
+                BasePageFragment fragment = (BasePageFragment) adapter.getItem(mCurrentPosition);
+
+                fragment.onUnselected();
+            }
+
+            BasePageFragment fragment = (BasePageFragment) adapter.getItem(position);
+
+            fragment.onSelected();
+
+            mCurrentPosition = position;
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state)
+        {
+        }
+    };
 }

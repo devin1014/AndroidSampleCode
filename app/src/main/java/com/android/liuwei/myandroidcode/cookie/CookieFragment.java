@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.android.liuwei.myandroidcode.BaseFragment;
 import com.android.liuwei.myandroidcode.R;
+import com.android.liuwei.myandroidcode.base.BasePageFragment;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
@@ -22,13 +22,16 @@ import java.net.URLDecoder;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
  * Date: 2018-06-04
  * Time: 14:57
  */
-public class CookieFragment extends BaseFragment
+public class CookieFragment extends BasePageFragment
 {
     @BindView(R.id.cookie_wb_value)
     TextView mWebViewCookie;
@@ -37,7 +40,7 @@ public class CookieFragment extends BaseFragment
     private CookieManager sCookieManager;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container)
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle saveInstance)
     {
         return inflater.inflate(R.layout.fragment_cookie, container, false);
     }
@@ -77,7 +80,7 @@ public class CookieFragment extends BaseFragment
 
         //web view
         {
-            String cookie = android.webkit.CookieManager.getInstance().getCookie(CookieActivity.URL_VIP_SPORTS);
+            String cookie = android.webkit.CookieManager.getInstance().getCookie(URI.create(CookieConstant.URL_VIP_SPORTS).getHost());
 
             StringBuilder builder = new StringBuilder();
 
@@ -110,6 +113,41 @@ public class CookieFragment extends BaseFragment
                 }
                 mHttpCookie.setText(builder.toString());
             }
+
+            CookieJar cookieJar = OkHttpClientManager.getOkHttpClient().cookieJar();
+
+            if (cookieJar instanceof CookieJarManager)
+            {
+                List<Cookie> cookies = ((CookieJarManager) cookieJar).getCookieStore().getCookies();
+
+                mHttpCookie.append("\n");
+
+                for (Cookie c : cookies)
+                {
+                    mHttpCookie.append(c + "\n");
+                }
+            }
         }
+    }
+
+    @OnClick(R.id.cookie_clear)
+    public void clearCookies()
+    {
+        CookieJar cookieJar = OkHttpClientManager.getOkHttpClient().cookieJar();
+
+        if (cookieJar instanceof CookieJarManager)
+        {
+            ((CookieJarManager) cookieJar).getCookieStore().removeAll();
+        }
+
+        android.webkit.CookieManager.getInstance().removeAllCookie();
+
+        initComponent();
+    }
+
+    @Override
+    public void onSelected()
+    {
+        initComponent();
     }
 }

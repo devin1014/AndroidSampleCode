@@ -1,76 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    android:id="@+id/linearLayout"
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,SpUsage">
 
-    <Button
-        android:id="@+id/http_request"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Go"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/http_request"
-        app:layout_constraintEnd_toStartOf="@id/http_request"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/http_request">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/http_editor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="" />
-    </android.support.design.widget.TextInputLayout>
-
-    <View
-        android:id="@+id/divider"
+    <!--login/username&password-->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
+        android:layout_height="wrap_content">
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider">
+        <!--login-->
+        <TextView
+            android:id="@+id/label_login"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center_vertical"
+            android:text="Login UserName/Password"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/label_login"
+            android:gravity="center_vertical"
+            android:text="Get"
+            android:textSize="10dp" />
 
         <TextView
-            android:id="@+id/http_response"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_toLeftOf="@id/btn_login"
+            android:layout_toStartOf="@id/btn_login"
+            android:gravity="center_vertical"
+            android:text="https://reg.cntv.cn.login.action"
+            android:textSize="10dp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#383838" />
+
+    <!--login/ticket-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--login-->
+        <TextView
+            android:id="@+id/label_login_ticket"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center_vertical"
+            android:text="Login Ticket"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_login_ticket"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/label_login_ticket"
+            android:gravity="center_vertical"
+            android:text="Get"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_toLeftOf="@id/btn_login_ticket"
+            android:layout_toStartOf="@id/btn_login_ticket"
+            android:gravity="center_vertical"
+            android:text="http://vip.sports.cctv.com/passport/loginCNTV.do"
+            android:textSize="10dp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#383838" />
+
+    <!--check session-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/label_check_session"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center_vertical"
+            android:text="Session"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_check_session"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/label_check_session"
+            android:gravity="center_vertical"
+            android:text="Get"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/label_check_session"
+            android:layout_toLeftOf="@id/btn_check_session"
+            android:layout_toStartOf="@id/btn_check_session"
+            android:gravity="center_vertical"
+            android:text="http://vip.sports.cctv.com/passport/checkSSO.do"
+            android:textSize="10dp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#383838" />
+
+    <!--get account thumbnail-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/label_account_thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center_vertical"
+            android:text="Account Thumbnail"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_account_thumbnail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/label_account_thumbnail"
+            android:gravity="center_vertical"
+            android:text="Get"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/label_account_thumbnail"
+            android:layout_toLeftOf="@id/btn_account_thumbnail"
+            android:layout_toStartOf="@id/btn_account_thumbnail"
+            android:gravity="center_vertical"
+            android:text="http://my.cntv.cn/intf/napi/api.php"
+            android:textSize="10dp" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--response-->
+        <TextView
+            android:id="@+id/label_http_response"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Response" />
+            android:gravity="center_vertical"
+            android:textSize="12dp" />
 
     </android.support.v4.widget.NestedScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -2,20 +2,23 @@ package com.android.liuwei.myandroidcode.cookie;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.android.liuwei.myandroidcode.BaseFragment;
 import com.android.liuwei.myandroidcode.R;
+import com.android.liuwei.myandroidcode.base.BasePageFragment;
 
 import butterknife.BindView;
 
@@ -24,7 +27,7 @@ import butterknife.BindView;
  * Date: 2018-05-04
  * Time: 16:07
  */
-public class WebViewFragment extends BaseFragment
+public class WebViewFragment extends BasePageFragment
 {
     @BindView(R.id.webview)
     WebView mWebView;
@@ -46,7 +49,7 @@ public class WebViewFragment extends BaseFragment
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container)
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle saveInstance)
     {
         return inflater.inflate(R.layout.fragment_webview, container, false);
     }
@@ -62,15 +65,20 @@ public class WebViewFragment extends BaseFragment
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setLoadWithOverviewMode(false);
+        webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setSupportZoom(true);
         webSettings.setDisplayZoomControls(true);
 
+        CookieManager.getInstance().setAcceptCookie(true);
+        if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP)
+        {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(mWebView, true);
+        }
+
         mWebView.setWebChromeClient(new MyWebChromeClient());
         mWebView.setWebViewClient(new MyWebViewClient());
-        mWebView.loadUrl(CookieActivity.URL_VIP_SPORTS);
     }
 
     @Override
@@ -79,6 +87,18 @@ public class WebViewFragment extends BaseFragment
         mWebView.destroy();
 
         super.onDestroyView();
+    }
+
+    @Override
+    public void onSelected()
+    {
+        mWebView.loadUrl(CookieConstant.URL_VIP_SPORTS);
+    }
+
+    @Override
+    public void onUnselected()
+    {
+        mWebView.stopLoading();
     }
 
     private class MyWebChromeClient extends WebChromeClient

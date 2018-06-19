@@ -28,7 +28,7 @@ public class MainFragment extends BaseFragment
     RecyclerView mRecyclerView;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container)
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle bundle)
     {
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
