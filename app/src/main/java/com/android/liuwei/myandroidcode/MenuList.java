@@ -15,6 +15,7 @@ public class MenuList
     public static final String MENU_COOKIE = "Cookie";
     public static final String MENU_DEVICE_INFO = "DeviceInfo";
     public static final String MENU_DIALOG = "Dialog";
+    public static final String MENU_LEBOCAST = "LeboCast";
 
     private static List<String> MENUS = new ArrayList<>();
 
@@ -25,6 +26,7 @@ public class MenuList
         MENUS.add(MENU_COOKIE);
         MENUS.add(MENU_DEVICE_INFO);
         MENUS.add(MENU_DIALOG);
+        MENUS.add(MENU_LEBOCAST);
     }
 
     public static List<String> getMenus()
