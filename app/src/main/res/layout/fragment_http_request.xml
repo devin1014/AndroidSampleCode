@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,SpUsage">
+
+    <!--login/username&password-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:text="用户名密码登入"
+        android:textSize="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="https://reg.cntv.cn.login.action"
+            android:textSize="12dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Call"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#383838" />
+
+    <!--login/ticket-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:text="Ticket登入"
+        android:textSize="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="http://vip.sports.cctv.com/passport/loginCNTV.do"
+            android:textSize="12dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_login_ticket"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="Call"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#383838" />
+
+    <!--check session-->
+    <TextView
+        android:id="@+id/label_check_session"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:text="Session检查"
+        android:textSize="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="http://vip.sports.cctv.com/passport/checkSSO.do"
+            android:textSize="12dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_check_session"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="Call"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#383838" />
+
+    <!--get account thumbnail-->
+    <TextView
+        android:id="@+id/label_account_thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:text="获取头像"
+        android:textSize="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="http://my.cntv.cn/intf/napi/api.php"
+            android:textSize="12dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_account_thumbnail"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="Call"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--response-->
+        <TextView
+            android:id="@+id/label_http_response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="12dp" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

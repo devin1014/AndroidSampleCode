@@ -18,7 +18,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.base.BasePageFragment;
+import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
 
 import butterknife.BindView;
 

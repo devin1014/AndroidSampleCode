@@ -5,14 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.SparseArray;
 
-import com.android.liuwei.myandroidcode.BaseActivity;
+import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.base.BasePageFragment;
+import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
 
 import butterknife.BindView;
 
@@ -45,7 +45,7 @@ public class CookieActivity extends BaseActivity
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
-    private class MyAdapter extends FragmentPagerAdapter
+    private class MyAdapter extends FragmentStatePagerAdapter
     {
         private final String[] TITLES = new String[]{"Cookie", "WebView", "Http"};
 
@@ -65,7 +65,7 @@ public class CookieActivity extends BaseActivity
             {
                 if (position == 0)
                 {
-                    fragment = new CookieFragment();
+                    fragment = new CookieListFragment();
                 }
                 else if (position == 1)
                 {
@@ -73,7 +73,7 @@ public class CookieActivity extends BaseActivity
                 }
                 else
                 {
-                    fragment = new HttpFragment();
+                    fragment = new HttpRequestFragment();
                 }
 
                 mSparseArray.put(position, fragment);
@@ -108,7 +108,7 @@ public class CookieActivity extends BaseActivity
         @Override
         public void onPageSelected(int position)
         {
-            FragmentPagerAdapter adapter = ((FragmentPagerAdapter) mViewPager.getAdapter());
+            FragmentStatePagerAdapter adapter = ((FragmentStatePagerAdapter) mViewPager.getAdapter());
 
             if (mCurrentPosition != -1)
             {

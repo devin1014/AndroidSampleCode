@@ -4,6 +4,7 @@ import android.app.Application;
 import android.support.annotation.Nullable;
 
 import com.android.liuwei.myandroidcode.cookie.OkHttpClientManager;
+import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -35,6 +36,8 @@ public class DemoApplication extends Application
                 return BuildConfig.DEBUG;
             }
         });
+
+        Stetho.initializeWithDefaults(this);
 
         OkHttpClientManager.init(this);
     }

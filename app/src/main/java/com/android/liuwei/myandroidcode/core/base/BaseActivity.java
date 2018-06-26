@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode;
+package com.android.liuwei.myandroidcode.core.base;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.android.liuwei.myandroidcode.core.util.LogUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

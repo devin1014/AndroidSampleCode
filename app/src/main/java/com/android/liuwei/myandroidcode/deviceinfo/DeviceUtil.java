@@ -19,7 +19,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.liuwei.myandroidcode.LogUtil;
+import com.android.liuwei.myandroidcode.core.util.LogUtil;
 
 import java.lang.reflect.Method;
 import java.net.NetworkInterface;

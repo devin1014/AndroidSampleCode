@@ -1,10 +1,9 @@
-package com.android.liuwei.myandroidcode.cookie;
+package com.android.liuwei.myandroidcode.cookie.thread;
 
-import com.android.liuwei.myandroidcode.util.IOUtils;
+import com.android.liuwei.myandroidcode.core.util.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -36,10 +35,6 @@ public class URLConnectThread extends BaseHttpThread
             final String result = IOUtils.parseInputStream(inputStream);
 
             notifyResult(result);
-        }
-        catch (MalformedURLException e)
-        {
-            e.printStackTrace();
         }
         catch (IOException e)
         {

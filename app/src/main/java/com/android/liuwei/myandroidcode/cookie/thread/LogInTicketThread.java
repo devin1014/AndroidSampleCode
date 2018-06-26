@@ -1,5 +1,7 @@
-package com.android.liuwei.myandroidcode.cookie;
+package com.android.liuwei.myandroidcode.cookie.thread;
 
+import com.android.liuwei.myandroidcode.cookie.OkHttpClientManager;
+import com.android.liuwei.myandroidcode.core.util.IOUtils;
 import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
@@ -17,17 +19,22 @@ public class LogInTicketThread extends BaseHttpThread
 {
     private String mTicket;
 
-    LogInTicketThread(String url, String ticket, HttpCallback callback)
+    public LogInTicketThread(String url, String ticket, HttpCallback callback)
     {
         super(url, callback);
 
         mTicket = ticket;
+
+        if (mTicket == null)
+        {
+            Logger.e("Ticket is NULL!");
+        }
     }
 
     @Override
-    void request(String url)
+    public void request(String url)
     {
-        url = url.replace("${ticket}", mTicket);
+        url = url.replace("${ticket}", mTicket != null ? mTicket : "");
 
         Request request = new Request.Builder().url(url).build();
 
@@ -37,15 +44,9 @@ public class LogInTicketThread extends BaseHttpThread
         {
             Response response = call.execute();
 
-            String resultString = response.body().string();
-
-            Logger.json(resultString);
+            String resultString = IOUtils.formatOkHttpResponse(response, response.body().string());
 
             notifyResult(resultString);
-
-            //            Gson gson = new GsonBuilder().create();
-            //
-            //            LogInTicketBean logInBean = gson.fromJson(resultString, LogInTicketBean.class);
         }
         catch (IOException e)
         {

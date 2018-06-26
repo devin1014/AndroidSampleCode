@@ -9,14 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.liuwei.myandroidcode.core.base.BaseFragment;
 import com.android.liuwei.myandroidcode.cookie.CookieActivity;
 import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.dialog.MyDialogActivity;
 import com.android.liuwei.myandroidcode.lebocast.LeboCastActivity;
 import com.android.liuwei.myandroidcode.link.LinkActivity;
 import com.android.liuwei.myandroidcode.orientation.OrientationActivity;
-import com.android.liuwei.myandroidcode.widget.ListAdapter;
-import com.android.liuwei.myandroidcode.widget.ListAdapter.Callback;
+import com.android.liuwei.myandroidcode.core.widget.ListAdapter;
+import com.android.liuwei.myandroidcode.core.widget.ListAdapter.Callback;
 
 import butterknife.BindView;
 

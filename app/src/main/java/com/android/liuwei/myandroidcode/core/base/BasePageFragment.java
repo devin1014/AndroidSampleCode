@@ -1,6 +1,4 @@
-package com.android.liuwei.myandroidcode.base;
-
-import com.android.liuwei.myandroidcode.BaseFragment;
+package com.android.liuwei.myandroidcode.core.base;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

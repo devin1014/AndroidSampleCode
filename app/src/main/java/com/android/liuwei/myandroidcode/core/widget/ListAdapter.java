@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.widget;
+package com.android.liuwei.myandroidcode.core.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.widget.ListAdapter.Holder;
+import com.android.liuwei.myandroidcode.core.widget.ListAdapter.Holder;
 
 import java.util.List;
 

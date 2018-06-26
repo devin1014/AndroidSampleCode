@@ -1,6 +1,6 @@
 package com.android.liuwei.myandroidcode.orientation;
 
-import com.android.liuwei.myandroidcode.BaseActivity;
+import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
 
 /**

@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.base;
+package com.android.liuwei.myandroidcode.core.base;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -10,8 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.liuwei.myandroidcode.BaseFragment;
-import com.android.liuwei.myandroidcode.LogUtil;
+import com.android.liuwei.myandroidcode.core.util.LogUtil;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.base.BasePageFragment;
+import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
@@ -31,7 +31,7 @@ import okhttp3.CookieJar;
  * Date: 2018-06-04
  * Time: 14:57
  */
-public class CookieFragment extends BasePageFragment
+public class CookieListFragment extends BasePageFragment
 {
     @BindView(R.id.cookie_wb_value)
     TextView mWebViewCookie;
@@ -42,7 +42,7 @@ public class CookieFragment extends BasePageFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle saveInstance)
     {
-        return inflater.inflate(R.layout.fragment_cookie, container, false);
+        return inflater.inflate(R.layout.fragment_cookie_list, container, false);
     }
 
     @Override

@@ -9,8 +9,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.base.BasePageFragment;
-import com.android.liuwei.myandroidcode.cookie.BaseHttpThread.HttpCallback;
+import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
+import com.android.liuwei.myandroidcode.cookie.thread.AccountThumbnailThread;
+import com.android.liuwei.myandroidcode.cookie.thread.BaseHttpThread.HttpCallback;
+import com.android.liuwei.myandroidcode.cookie.thread.CheckSessionThread;
+import com.android.liuwei.myandroidcode.cookie.thread.LogInTicketThread;
+import com.android.liuwei.myandroidcode.cookie.thread.LogInUserNameThread;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -20,7 +24,7 @@ import butterknife.OnClick;
  * Date: 2018-05-04
  * Time: 16:01
  */
-public class HttpFragment extends BasePageFragment
+public class HttpRequestFragment extends BasePageFragment
 {
     @BindView(R.id.label_http_response)
     TextView mHttpResponse;
@@ -30,7 +34,7 @@ public class HttpFragment extends BasePageFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle saveInstance)
     {
-        return inflater.inflate(R.layout.fragment_http, container, false);
+        return inflater.inflate(R.layout.fragment_http_request, container, false);
     }
 
     @Override
@@ -60,7 +64,7 @@ public class HttpFragment extends BasePageFragment
     {
         clearResponseValue();
 
-        new AccountThumbnail(CookieConstant.URL_ACCOUNT_THUMBNAIL, mHttpCallback).start();
+        new AccountThumbnailThread(CookieConstant.URL_ACCOUNT_THUMBNAIL, mHttpCallback).start();
     }
 
     @OnClick(R.id.btn_check_session)

@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.cookie;
+package com.android.liuwei.myandroidcode.cookie.bean;
 
 import java.util.List;
 

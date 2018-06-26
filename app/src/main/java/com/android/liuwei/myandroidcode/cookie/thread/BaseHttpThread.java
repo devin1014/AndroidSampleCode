@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.cookie;
+package com.android.liuwei.myandroidcode.cookie.thread;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -21,7 +21,7 @@ public abstract class BaseHttpThread extends Thread
 
     private Handler mHandler;
 
-    BaseHttpThread(String url, HttpCallback callback)
+    public BaseHttpThread(String url, HttpCallback callback)
     {
         mUrl = url;
 
@@ -36,9 +36,9 @@ public abstract class BaseHttpThread extends Thread
         request(mUrl);
     }
 
-    abstract void request(String url);
+    public abstract void request(String url);
 
-    final void notifyResult(final String response)
+    protected final void notifyResult(final String response)
     {
         if (mCallback != null)
         {

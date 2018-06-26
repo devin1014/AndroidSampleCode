@@ -1,4 +1,7 @@
-package com.android.liuwei.myandroidcode.cookie;
+package com.android.liuwei.myandroidcode.cookie.thread;
+
+import com.android.liuwei.myandroidcode.cookie.OkHttpClientManager;
+import com.android.liuwei.myandroidcode.core.util.IOUtils;
 
 import java.io.IOException;
 
@@ -13,7 +16,7 @@ import okhttp3.Response;
  */
 public class CheckSessionThread extends BaseHttpThread
 {
-    CheckSessionThread(String url, HttpCallback callback)
+    public CheckSessionThread(String url, HttpCallback callback)
     {
         super(url, callback);
     }
@@ -25,16 +28,15 @@ public class CheckSessionThread extends BaseHttpThread
 
         Request request = builder.url(url).build();
 
+        Call call = OkHttpClientManager.getOkHttpClient().newCall(request);
+
         try
         {
-            Call call = OkHttpClientManager.getOkHttpClient().newCall(request);
-
             Response response = call.execute();
 
-            if (response != null && response.body() != null)
-            {
-                notifyResult(response.body().string());
-            }
+            String resultString = IOUtils.formatOkHttpResponse(response, response.body().string());
+
+            notifyResult(resultString);
         }
         catch (IOException e)
         {
