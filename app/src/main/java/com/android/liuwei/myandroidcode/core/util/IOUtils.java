@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URLConnection;
+import java.util.List;
+import java.util.Map;
 
 import okhttp3.Headers;
 import okhttp3.Response;
@@ -15,7 +18,26 @@ import okhttp3.Response;
  */
 public class IOUtils
 {
-    public static String parseInputStream(InputStream inputStream) throws IOException
+    public static String parseURLConnectionResponseHeader(URLConnection connection)
+    {
+        StringBuilder builder = new StringBuilder();
+
+        Map<String, List<String>> headers = connection.getHeaderFields();
+
+        for (String header : headers.keySet())
+        {
+            List<String> list = headers.get(header);
+
+            for (String value : list)
+            {
+                builder.append(header).append(":").append(value).append("\n");
+            }
+        }
+
+        return builder.toString();
+    }
+
+    public static String parseURLConnectionResponse(InputStream inputStream) throws IOException
     {
         StringBuilder builder = new StringBuilder();
 

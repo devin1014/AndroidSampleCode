@@ -9,36 +9,41 @@ import java.net.URLConnection;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
- * Date: 2018-05-04
- * Time: 16:31
+ * Date: 2018-06-27
+ * Time: 17:31
  */
-public class URLConnectThread extends BaseHttpThread
+public abstract class URLConnectionThread extends BaseHttpThread
 {
-    URLConnectThread(String url, HttpCallback callback)
+    URLConnectionThread(String url, HttpCallback callback)
     {
         super(url, callback);
     }
 
-    @Override
-    public void request(String urlString)
+    protected String connect(String url)
     {
+        notifyResult("正在加载");
+
         InputStream inputStream = null;
 
         try
         {
-            URL url = new URL(urlString);
+            URLConnection connection = new URL(url).openConnection();
 
-            URLConnection urlConnection = url.openConnection();
+            inputStream = connection.getInputStream();
 
-            inputStream = urlConnection.getInputStream();
+            String header = IOUtils.parseURLConnectionResponseHeader(connection);
 
-            final String result = IOUtils.parseInputStream(inputStream);
+            String result = IOUtils.parseURLConnectionResponse(inputStream);
 
-            notifyResult(result);
+            notifyResult(header + "\n\n" + result);
+
+            return result;
         }
         catch (IOException e)
         {
             e.printStackTrace();
+
+            notifyResult(e.getMessage());
         }
         finally
         {
@@ -54,5 +59,7 @@ public class URLConnectThread extends BaseHttpThread
                 }
             }
         }
+
+        return null;
     }
 }

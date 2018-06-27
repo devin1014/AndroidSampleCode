@@ -125,7 +125,7 @@ public class PersistentCookieStore implements OkHttpCookieStore, CookieJar
         //讲cookies持久化到本地
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         editor.putString(host, TextUtils.join(",", mCookiesMap.get(host).keySet()));
-        editor.putString(name, encodeCookie(new SerializableOkHttpCookies(cookie)));
+        editor.putString(name, encodeCookie(new SerializableCookies(cookie)));
         editor.apply();
     }
 
@@ -204,7 +204,7 @@ public class PersistentCookieStore implements OkHttpCookieStore, CookieJar
      * @param cookie 要序列化的cookie
      * @return 序列化之后的string
      */
-    private String encodeCookie(SerializableOkHttpCookies cookie)
+    private String encodeCookie(SerializableCookies cookie)
     {
         if (cookie == null)
         {
@@ -247,7 +247,7 @@ public class PersistentCookieStore implements OkHttpCookieStore, CookieJar
         {
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
 
-            cookie = ((SerializableOkHttpCookies) objectInputStream.readObject()).getCookies();
+            cookie = ((SerializableCookies) objectInputStream.readObject()).getCookies();
         }
         catch (IOException e)
         {

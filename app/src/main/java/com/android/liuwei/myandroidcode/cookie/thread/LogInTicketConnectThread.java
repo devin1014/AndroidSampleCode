@@ -4,14 +4,14 @@ import com.orhanobut.logger.Logger;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
- * Date: 2018-06-12
- * Time: 15:35
+ * Date: 2018-06-27
+ * Time: 17:29
  */
-public class LogInTicketThread extends OkHttpThread
+public class LogInTicketConnectThread extends URLConnectionThread
 {
     private String mTicket;
 
-    public LogInTicketThread(String url, String ticket, HttpCallback callback)
+    public LogInTicketConnectThread(String url, String ticket, HttpCallback callback)
     {
         super(url, callback);
 

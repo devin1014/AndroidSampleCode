@@ -2,12 +2,12 @@ package com.android.liuwei.myandroidcode.cookie.thread;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
- * Date: 2018-06-11
- * Time: 14:19
+ * Date: 2018-06-27
+ * Time: 17:33
  */
-public class CheckSessionThread extends OkHttpThread
+public class CheckSessionConnectThread extends URLConnectionThread
 {
-    public CheckSessionThread(String url, HttpCallback callback)
+    public CheckSessionConnectThread(String url, HttpCallback callback)
     {
         super(url, callback);
     }
@@ -17,5 +17,4 @@ public class CheckSessionThread extends OkHttpThread
     {
         connect(url);
     }
-
 }

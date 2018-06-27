@@ -11,19 +11,22 @@ import okhttp3.Response;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
- * Date: 2018-06-12
- * Time: 15:42
+ * Date: 2018-06-27
+ * Time: 17:40
  */
-public class AccountThumbnailThread extends BaseHttpThread
+public abstract class OkHttpThread extends BaseHttpThread
 {
-    public AccountThumbnailThread(String url, HttpCallback callback)
+    OkHttpThread(String url, HttpCallback callback)
     {
         super(url, callback);
     }
 
-    @Override
-    public void request(String url)
+    protected String connect(String url)
     {
+        notifyResult("正在加载。。。");
+
+        String result = null;
+
         Request request = new Request.Builder().url(url).build();
 
         Call call = OkHttpClientManager.getOkHttpClient().newCall(request);
@@ -32,13 +35,17 @@ public class AccountThumbnailThread extends BaseHttpThread
         {
             Response response = call.execute();
 
-            String resultString = IOUtils.formatOkHttpResponse(response, response.body().string());
+            result = response.body().string();
 
-            notifyResult(resultString);
+            notifyResult(IOUtils.formatOkHttpResponse(response, result));
         }
         catch (IOException e)
         {
             e.printStackTrace();
+
+            notifyResult(e.getMessage());
         }
+
+        return result;
     }
 }

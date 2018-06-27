@@ -53,6 +53,7 @@ public class CookieListFragment extends BasePageFragment
 
         if (CookieHandler.getDefault() == null)
         {
+            //默认为空！
             CookieHandler.setDefault(new CookieManager());
         }
 
@@ -61,7 +62,7 @@ public class CookieListFragment extends BasePageFragment
 
     private void resetCookies()
     {
-        //web view
+        //webview cookie
         {
             URI uri = URI.create(CookieConstant.URL_VIP_SPORTS);
 
@@ -82,28 +83,7 @@ public class CookieListFragment extends BasePageFragment
             mWebViewCookie.setText(builder.toString());
         }
 
-        //java.net http
-        {
-            CookieManager cookieManager = (CookieManager) CookieHandler.getDefault();
-
-            CookieStore cookieStore = cookieManager.getCookieStore();
-
-            List<HttpCookie> cookieList = cookieStore.getCookies();
-
-            if (cookieList != null)
-            {
-                StringBuilder builder = new StringBuilder();
-
-                for (HttpCookie cookie : cookieList)
-                {
-                    builder.append(cookie.toString()).append("\n");
-                }
-
-                mJavaCookie.setText(builder.toString());
-            }
-        }
-
-        //okhttp
+        //okhttp cookie
         {
             CookieJar cookieJar = OkHttpClientManager.getOkHttpClient().cookieJar();
 
@@ -131,6 +111,28 @@ public class CookieListFragment extends BasePageFragment
                 mHttpCookie.setText(builder.toString());
             }
         }
+
+        //java.net url connection cookie
+        {
+            CookieManager cookieManager = (CookieManager) CookieHandler.getDefault();
+
+            CookieStore cookieStore = cookieManager.getCookieStore();
+
+            List<HttpCookie> cookieList = cookieStore.getCookies();
+
+            if (cookieList != null)
+            {
+                StringBuilder builder = new StringBuilder();
+
+                for (HttpCookie cookie : cookieList)
+                {
+                    builder.append(cookie.toString()).append("\n");
+                }
+
+                mJavaCookie.setText(builder.toString());
+            }
+        }
+
     }
 
     @OnClick(R.id.cookie_clear)

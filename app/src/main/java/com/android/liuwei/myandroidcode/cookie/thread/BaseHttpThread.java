@@ -21,7 +21,7 @@ public abstract class BaseHttpThread extends Thread
 
     private Handler mHandler;
 
-    public BaseHttpThread(String url, HttpCallback callback)
+    BaseHttpThread(String url, HttpCallback callback)
     {
         mUrl = url;
 
@@ -38,7 +38,7 @@ public abstract class BaseHttpThread extends Thread
 
     public abstract void request(String url);
 
-    protected final void notifyResult(final String response)
+    final void notifyResult(final String response)
     {
         if (mCallback != null)
         {

@@ -3,6 +3,7 @@ package com.android.liuwei.myandroidcode.cookie;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import java.net.CookieManager;
 import java.util.List;
 
 import okhttp3.Cookie;
@@ -14,7 +15,7 @@ import okhttp3.HttpUrl;
  * Date: 2018-06-11
  * Time: 14:58
  */
-public class CookieJarManager implements CookieJar
+public class CookieJarManager extends CookieManager implements CookieJar
 {
     public CookieJarManager(Context context)
     {

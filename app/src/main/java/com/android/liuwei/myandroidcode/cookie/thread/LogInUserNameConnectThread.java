@@ -10,12 +10,12 @@ import com.google.gson.GsonBuilder;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
- * Date: 2018-06-11
- * Time: 15:54
+ * Date: 2018-06-27
+ * Time: 17:17
  */
-public class LogInUserNameThread extends OkHttpThread
+public class LogInUserNameConnectThread extends URLConnectionThread
 {
-    public LogInUserNameThread(String url, HttpCallback callback)
+    public LogInUserNameConnectThread(String url, HttpCallback callback)
     {
         super(url, callback);
     }

@@ -9,14 +9,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
-import com.android.liuwei.myandroidcode.cookie.thread.AccountThumbnailThread;
 import com.android.liuwei.myandroidcode.cookie.thread.BaseHttpThread.HttpCallback;
+import com.android.liuwei.myandroidcode.cookie.thread.CheckSessionConnectThread;
 import com.android.liuwei.myandroidcode.cookie.thread.CheckSessionThread;
+import com.android.liuwei.myandroidcode.cookie.thread.LogInTicketConnectThread;
 import com.android.liuwei.myandroidcode.cookie.thread.LogInTicketThread;
+import com.android.liuwei.myandroidcode.cookie.thread.LogInUserNameConnectThread;
 import com.android.liuwei.myandroidcode.cookie.thread.LogInUserNameThread;
+import com.android.liuwei.myandroidcode.cookie.thread.UserThumbNailConnectThread;
+import com.android.liuwei.myandroidcode.cookie.thread.UserThumbNailThread;
+import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
 
 import butterknife.BindView;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
 /**
@@ -26,10 +31,12 @@ import butterknife.OnClick;
  */
 public class HttpRequestFragment extends BasePageFragment
 {
+    public static String mTicket = null;
+
     @BindView(R.id.label_http_response)
     TextView mHttpResponse;
 
-    public static String mTicket = null;
+    private boolean mRequestByOkHttp = true;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle saveInstance)
@@ -48,7 +55,14 @@ public class HttpRequestFragment extends BasePageFragment
     {
         clearResponseValue();
 
-        new LogInUserNameThread(CookieConstant.URL_SIGNIN_USERNAME, mHttpCallback).start();
+        if (mRequestByOkHttp)
+        {
+            new LogInUserNameThread(CookieConstant.URL_SIGNIN_USERNAME, mHttpCallback).start();
+        }
+        else
+        {
+            new LogInUserNameConnectThread(CookieConstant.URL_SIGNIN_USERNAME, mHttpCallback).start();
+        }
     }
 
     @OnClick(R.id.btn_login_ticket)
@@ -56,15 +70,14 @@ public class HttpRequestFragment extends BasePageFragment
     {
         clearResponseValue();
 
-        new LogInTicketThread(CookieConstant.URL_SIGNIN_TICKET, mTicket, mHttpCallback).start();
-    }
-
-    @OnClick(R.id.btn_account_thumbnail)
-    public void getAccountThumbnail()
-    {
-        clearResponseValue();
-
-        new AccountThumbnailThread(CookieConstant.URL_ACCOUNT_THUMBNAIL, mHttpCallback).start();
+        if (mRequestByOkHttp)
+        {
+            new LogInTicketThread(CookieConstant.URL_SIGNIN_TICKET, mTicket, mHttpCallback).start();
+        }
+        else
+        {
+            new LogInTicketConnectThread(CookieConstant.URL_SIGNIN_TICKET, mTicket, mHttpCallback).start();
+        }
     }
 
     @OnClick(R.id.btn_check_session)
@@ -72,8 +85,41 @@ public class HttpRequestFragment extends BasePageFragment
     {
         clearResponseValue();
 
-        //        new URLConnectThread(url, mHttpCallback).start();
-        new CheckSessionThread(CookieConstant.URL_CHECK_SESSION, mHttpCallback).start();
+        if (mRequestByOkHttp)
+        {
+            new CheckSessionThread(CookieConstant.URL_CHECK_SESSION, mHttpCallback).start();
+        }
+        else
+        {
+            new CheckSessionConnectThread(CookieConstant.URL_CHECK_SESSION, mHttpCallback).start();
+        }
+    }
+
+    @OnClick(R.id.btn_account_thumbnail)
+    public void getAccountThumbnail()
+    {
+        clearResponseValue();
+
+        if (mRequestByOkHttp)
+        {
+            new UserThumbNailThread(CookieConstant.URL_ACCOUNT_THUMBNAIL, mHttpCallback).start();
+        }
+        else
+        {
+            new UserThumbNailConnectThread(CookieConstant.URL_ACCOUNT_THUMBNAIL, mHttpCallback).start();
+        }
+    }
+
+    @OnCheckedChanged(R.id.radio_request_okhttp)
+    public void onRequestOkHttpChecked(boolean checked)
+    {
+        mRequestByOkHttp = checked;
+    }
+
+    @OnCheckedChanged(R.id.radio_request_urlconnection)
+    public void onRequestURLConnectionChecked(boolean checked)
+    {
+        mRequestByOkHttp = !checked;
     }
 
     private void clearResponseValue()

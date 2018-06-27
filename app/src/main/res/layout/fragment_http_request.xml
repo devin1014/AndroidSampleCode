@@ -7,10 +7,39 @@
     android:orientation="vertical"
     tools:ignore="HardcodedText,SpUsage">
 
+    <!--请求方式-->
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_request_okhttp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:gravity="center"
+            android:text="OkHttp"
+            android:textSize="12dp" />
+
+        <RadioButton
+            android:id="@+id/radio_request_urlconnection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:gravity="center"
+            android:text="URLConnection"
+            android:textSize="12dp" />
+
+    </RadioGroup>
+
     <!--login/username&password-->
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:text="用户名密码登入"
         android:textSize="12dp" />
@@ -47,7 +76,7 @@
     <!--login/ticket-->
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:text="Ticket登入"
         android:textSize="12dp" />
@@ -85,7 +114,7 @@
     <TextView
         android:id="@+id/label_check_session"
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:text="Session检查"
         android:textSize="12dp" />
@@ -123,7 +152,7 @@
     <TextView
         android:id="@+id/label_account_thumbnail"
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:text="获取头像"
         android:textSize="12dp" />
@@ -151,6 +180,11 @@
             android:textSize="10dp" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#383838" />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

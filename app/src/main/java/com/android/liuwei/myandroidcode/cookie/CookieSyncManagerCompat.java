@@ -2,8 +2,6 @@ package com.android.liuwei.myandroidcode.cookie;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
 
 import com.android.liuwei.myandroidcode.OkHttpCookieStore;
 
@@ -36,18 +34,22 @@ public class CookieSyncManagerCompat
 
     private Map<URI, List<String>> mSyncHostMap = new HashMap<>();
 
-    private OkHttpCookieStore mHttpCookieStore;
+    private OkHttpCookieStore mOkHttpCookieStore;
+
+    private java.net.CookieManager mJavaNetCookieStore;
 
     private CookieSyncManagerCompat()
     {
-        CookieManager.getInstance().setAcceptCookie(true);
+        android.webkit.CookieManager.getInstance().setAcceptCookie(true);
     }
 
-    public void setSyncCookieStore(Context context, OkHttpCookieStore cookieStore)
+    public void setSyncCookieStore(Context context, OkHttpCookieStore cookieStore, java.net.CookieManager cookieHandler)
     {
-        CookieSyncManager.createInstance(context);
+        android.webkit.CookieSyncManager.createInstance(context);
 
-        mHttpCookieStore = cookieStore;
+        mOkHttpCookieStore = cookieStore;
+
+        mJavaNetCookieStore = cookieHandler;
     }
 
     public synchronized void addSyncHost(URI uri, String... cookieName)
@@ -66,11 +68,11 @@ public class CookieSyncManagerCompat
             {
                 String host = uri.getHost();
 
-                List<Cookie> originalHttpCookies = Collections.unmodifiableList(mHttpCookieStore.getCookie(uri));
+                List<Cookie> originalHttpCookies = Collections.unmodifiableList(mOkHttpCookieStore.getCookie(uri));
 
-                //sync webview to okhttp
+                //sync webview to OkHttp & java.net.URLConnection
                 {
-                    String webCookie = CookieManager.getInstance().getCookie(host);
+                    String webCookie = android.webkit.CookieManager.getInstance().getCookie(host);
 
                     if (!TextUtils.isEmpty(webCookie))
                     {
@@ -80,9 +82,10 @@ public class CookieSyncManagerCompat
 
                         for (String c : cookieArray)
                         {
+                            //to OkHttp
                             if (httpUrl != null)
                             {
-                                mHttpCookieStore.addCookie(uri, Cookie.parse(httpUrl, c));
+                                mOkHttpCookieStore.addCookie(uri, Cookie.parse(httpUrl, c));
                             }
                             else
                             {
@@ -92,8 +95,11 @@ public class CookieSyncManagerCompat
 
                                 String value = pair[1].trim();
 
-                                mHttpCookieStore.addCookie(uri, new Cookie.Builder().domain(host).name(name).value(value).build());
+                                mOkHttpCookieStore.addCookie(uri, new Cookie.Builder().domain(host).name(name).value(value).build());
                             }
+
+                            //to URLConnection
+                            //todo:sync
                         }
                     }
                 }
@@ -104,10 +110,10 @@ public class CookieSyncManagerCompat
                     {
                         for (Cookie cookie : originalHttpCookies)
                         {
-                            CookieManager.getInstance().setCookie(host, cookie.toString());
+                            android.webkit.CookieManager.getInstance().setCookie(host, cookie.toString());
                         }
 
-                        CookieSyncManager.getInstance().sync();
+                        android.webkit.CookieSyncManager.getInstance().sync();
                     }
                 }
             }

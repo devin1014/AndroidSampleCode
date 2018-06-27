@@ -12,13 +12,13 @@ import okhttp3.Cookie;
  * Date: 2018-06-12
  * Time: 15:01
  */
-public class SerializableOkHttpCookies implements Serializable
+public class SerializableCookies implements Serializable
 {
     private transient final Cookie mCookie;
 
     private transient Cookie mClientCookies;
 
-    public SerializableOkHttpCookies(Cookie cookies)
+    public SerializableCookies(Cookie cookies)
     {
         mCookie = cookies;
     }
