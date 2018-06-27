@@ -14,35 +14,38 @@ import okhttp3.Cookie;
  */
 public class SerializableOkHttpCookies implements Serializable
 {
-    private transient final Cookie cookies;
-    private transient Cookie clientCookies;
+    private transient final Cookie mCookie;
+
+    private transient Cookie mClientCookies;
 
     public SerializableOkHttpCookies(Cookie cookies)
     {
-        this.cookies = cookies;
+        mCookie = cookies;
     }
 
     public Cookie getCookies()
     {
-        Cookie bestCookies = cookies;
-        if (clientCookies != null)
+        Cookie bestCookies = mCookie;
+
+        if (mClientCookies != null)
         {
-            bestCookies = clientCookies;
+            bestCookies = mClientCookies;
         }
+
         return bestCookies;
     }
 
     private void writeObject(ObjectOutputStream out) throws IOException
     {
-        out.writeObject(cookies.name());
-        out.writeObject(cookies.value());
-        out.writeLong(cookies.expiresAt());
-        out.writeObject(cookies.domain());
-        out.writeObject(cookies.path());
-        out.writeBoolean(cookies.secure());
-        out.writeBoolean(cookies.httpOnly());
-        out.writeBoolean(cookies.hostOnly());
-        out.writeBoolean(cookies.persistent());
+        out.writeObject(mCookie.name());
+        out.writeObject(mCookie.value());
+        out.writeLong(mCookie.expiresAt());
+        out.writeObject(mCookie.domain());
+        out.writeObject(mCookie.path());
+        out.writeBoolean(mCookie.secure());
+        out.writeBoolean(mCookie.httpOnly());
+        out.writeBoolean(mCookie.hostOnly());
+        out.writeBoolean(mCookie.persistent());
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException
@@ -56,6 +59,7 @@ public class SerializableOkHttpCookies implements Serializable
         boolean httpOnly = in.readBoolean();
         boolean hostOnly = in.readBoolean();
         boolean persistent = in.readBoolean();
+
         Cookie.Builder builder = new Cookie.Builder();
         builder = builder.name(name);
         builder = builder.value(value);
@@ -64,6 +68,6 @@ public class SerializableOkHttpCookies implements Serializable
         builder = builder.path(path);
         builder = secure ? builder.secure() : builder;
         builder = httpOnly ? builder.httpOnly() : builder;
-        clientCookies = builder.build();
+        mClientCookies = builder.build();
     }
 }

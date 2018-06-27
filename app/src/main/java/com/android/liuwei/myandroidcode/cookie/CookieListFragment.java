@@ -9,12 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.liuwei.myandroidcode.OkHttpCookieStore;
 import com.android.liuwei.myandroidcode.R;
 import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
-import java.net.CookiePolicy;
 import java.net.CookieStore;
 import java.net.HttpCookie;
 import java.net.URI;
@@ -37,7 +37,8 @@ public class CookieListFragment extends BasePageFragment
     TextView mWebViewCookie;
     @BindView(R.id.cookie_http_value)
     TextView mHttpCookie;
-    private CookieManager sCookieManager;
+    @BindView(R.id.cookie_java_value)
+    TextView mJavaCookie;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle saveInstance)
@@ -50,43 +51,28 @@ public class CookieListFragment extends BasePageFragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        initComponent();
-    }
-
-    private void initComponent()
-    {
+        if (CookieHandler.getDefault() == null)
         {
-            // CookieHandler.getDefault() 为空，如果不调用的话
-            if (CookieHandler.getDefault() == null)
-            {
-                if (sCookieManager == null)
-                {
-                    sCookieManager = new CookieManager();
-
-                    sCookieManager.setCookiePolicy(new CookiePolicy()
-                    {
-                        @Override
-                        public boolean shouldAccept(URI uri, HttpCookie cookie)
-                        {
-                            //do somethings
-                            return true;
-                        }
-                    });
-                }
-
-                CookieHandler.setDefault(sCookieManager);
-            }
+            CookieHandler.setDefault(new CookieManager());
         }
 
+        resetCookies();
+    }
+
+    private void resetCookies()
+    {
         //web view
         {
-            String cookie = android.webkit.CookieManager.getInstance().getCookie(URI.create(CookieConstant.URL_VIP_SPORTS).getHost());
+            URI uri = URI.create(CookieConstant.URL_VIP_SPORTS);
+
+            String cookie = android.webkit.CookieManager.getInstance().getCookie(uri.getHost());
 
             StringBuilder builder = new StringBuilder();
 
             if (!TextUtils.isEmpty(cookie))
             {
                 String[] arrays = cookie.split(";");
+
                 for (String s : arrays)
                 {
                     builder.append(URLDecoder.decode(s)).append("\n");
@@ -96,7 +82,7 @@ public class CookieListFragment extends BasePageFragment
             mWebViewCookie.setText(builder.toString());
         }
 
-        //http
+        //java.net http
         {
             CookieManager cookieManager = (CookieManager) CookieHandler.getDefault();
 
@@ -107,25 +93,42 @@ public class CookieListFragment extends BasePageFragment
             if (cookieList != null)
             {
                 StringBuilder builder = new StringBuilder();
+
                 for (HttpCookie cookie : cookieList)
                 {
                     builder.append(cookie.toString()).append("\n");
                 }
-                mHttpCookie.setText(builder.toString());
-            }
 
+                mJavaCookie.setText(builder.toString());
+            }
+        }
+
+        //okhttp
+        {
             CookieJar cookieJar = OkHttpClientManager.getOkHttpClient().cookieJar();
 
-            if (cookieJar instanceof CookieJarManager)
+            if (cookieJar instanceof OkHttpCookieStore)
             {
-                List<Cookie> cookies = ((CookieJarManager) cookieJar).getCookieStore().getCookies();
+                StringBuilder builder = new StringBuilder();
 
-                mHttpCookie.append("\n");
-
-                for (Cookie c : cookies)
+                for (String url : ((OkHttpCookieStore) cookieJar).getCookieDomainUrl())
                 {
-                    mHttpCookie.append(c + "\n");
+                    if (builder.length() > 0)
+                    {
+                        builder.append("\n");
+                    }
+
+                    builder.append(url).append("\n");
+
+                    List<Cookie> cookies = ((OkHttpCookieStore) cookieJar).getCookie(url);
+
+                    for (Cookie c : cookies)
+                    {
+                        builder.append(c).append("\n");
+                    }
                 }
+
+                mHttpCookie.setText(builder.toString());
             }
         }
     }
@@ -135,19 +138,19 @@ public class CookieListFragment extends BasePageFragment
     {
         CookieJar cookieJar = OkHttpClientManager.getOkHttpClient().cookieJar();
 
-        if (cookieJar instanceof CookieJarManager)
+        if (cookieJar instanceof OkHttpCookieStore)
         {
-            ((CookieJarManager) cookieJar).getCookieStore().removeAll();
+            ((OkHttpCookieStore) cookieJar).removeAllCookie();
         }
 
         android.webkit.CookieManager.getInstance().removeAllCookie();
 
-        initComponent();
+        resetCookies();
     }
 
     @Override
     public void onSelected()
     {
-        initComponent();
+        resetCookies();
     }
 }

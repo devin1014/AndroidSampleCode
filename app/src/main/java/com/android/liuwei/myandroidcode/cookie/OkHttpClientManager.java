@@ -2,7 +2,6 @@ package com.android.liuwei.myandroidcode.cookie;
 
 import android.content.Context;
 
-import com.android.liuwei.myandroidcode.cookie.CookieJarManager;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -22,7 +21,7 @@ public class OkHttpClientManager
     {
         sOkHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(5000, TimeUnit.MILLISECONDS)
-                .cookieJar(new CookieJarManager(context))
+                .cookieJar(new PersistentCookieStore(context))
                 .addNetworkInterceptor(new StethoInterceptor())
                 .build();
     }

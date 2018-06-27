@@ -10,9 +10,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.SparseArray;
 
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
+import com.android.liuwei.myandroidcode.OkHttpCookieStore;
 import com.android.liuwei.myandroidcode.R;
+import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
+
+import java.net.URI;
 
 import butterknife.BindView;
 
@@ -43,6 +46,9 @@ public class CookieActivity extends BaseActivity
         mViewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
         mViewPager.setOffscreenPageLimit(2);
         mTabLayout.setupWithViewPager(mViewPager);
+
+        CookieSyncManagerCompat.getInstance().addSyncHost(URI.create(CookieConstant.URL_VIP_SPORTS));
+        CookieSyncManagerCompat.getInstance().setSyncCookieStore(this, (OkHttpCookieStore) OkHttpClientManager.getOkHttpClient().cookieJar());
     }
 
     private class MyAdapter extends FragmentStatePagerAdapter

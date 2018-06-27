@@ -1,6 +1,5 @@
 package com.android.liuwei.myandroidcode.cookie;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
@@ -37,18 +36,6 @@ public class WebViewFragment extends BasePageFragment
     ProgressBar mLoadingView;
 
     @Override
-    public void onAttach(Context context)
-    {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach()
-    {
-        super.onDetach();
-    }
-
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle saveInstance)
     {
         return inflater.inflate(R.layout.fragment_webview, container, false);
@@ -59,9 +46,7 @@ public class WebViewFragment extends BasePageFragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        //CookieSyncManager.createInstance(this);
-        //CookieSyncManager.getInstance().sync();
-        //android.webkit.CookieManager.getInstance().setAcceptCookie(true);
+        //CookieSyncManagerCompat.getInstance().sync();
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -86,18 +71,24 @@ public class WebViewFragment extends BasePageFragment
     {
         mWebView.destroy();
 
+        //CookieSyncManagerCompat.getInstance().sync();
+
         super.onDestroyView();
     }
 
     @Override
     public void onSelected()
     {
+        CookieSyncManagerCompat.getInstance().sync();
+
         mWebView.loadUrl(CookieConstant.URL_VIP_SPORTS);
     }
 
     @Override
     public void onUnselected()
     {
+        CookieSyncManagerCompat.getInstance().sync();
+
         mWebView.stopLoading();
     }
 
