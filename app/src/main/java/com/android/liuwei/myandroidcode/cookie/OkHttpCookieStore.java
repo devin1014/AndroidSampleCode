@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode;
+package com.android.liuwei.myandroidcode.cookie;
 
 import java.net.URI;
 import java.util.List;

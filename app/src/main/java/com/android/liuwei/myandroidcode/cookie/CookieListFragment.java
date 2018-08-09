@@ -9,9 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.android.liuwei.myandroidcode.OkHttpCookieStore;
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
@@ -23,6 +21,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import liuwei.android.core.base.BasePageFragment;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 

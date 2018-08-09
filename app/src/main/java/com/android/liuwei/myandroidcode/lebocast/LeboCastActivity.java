@@ -10,7 +10,6 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.hpplay.sdk.source.api.IConnectListener;
 import com.hpplay.sdk.source.api.ILelinkPlayerListener;
 import com.hpplay.sdk.source.api.LelinkPlayer;
@@ -27,6 +26,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import liuwei.android.core.base.BaseActivity;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

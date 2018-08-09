@@ -4,8 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.android.liuwei.myandroidcode.OkHttpCookieStore;
-
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;

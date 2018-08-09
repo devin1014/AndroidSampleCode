@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.core.widget;
+package liuwei.android.core.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,10 +10,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.core.widget.ListAdapter.Holder;
-
 import java.util.List;
+
+import liuwei.android.core.widget.ListAdapter.Holder;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
@@ -30,19 +29,21 @@ public class ListAdapter extends Adapter<Holder>
     private LayoutInflater mLayoutInflater;
     private List<String> mData;
     private Callback mCallback;
+    private int mItemLayoutId;
 
-    public ListAdapter(Context context, List<String> list, Callback callback)
+    public ListAdapter(Context context, List<String> list, Callback callback, int layoutId)
     {
         mLayoutInflater = LayoutInflater.from(context);
         mData = list;
         mCallback = callback;
+        mItemLayoutId = layoutId;
     }
 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        return new Holder(mLayoutInflater.inflate(R.layout.comp_nav_list, parent, false));
+        return new Holder(mLayoutInflater.inflate(mItemLayoutId, parent, false));
     }
 
     @Override

@@ -19,13 +19,13 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.liuwei.myandroidcode.core.util.LogUtil;
-
 import java.lang.reflect.Method;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
 import java.util.Locale;
 import java.util.regex.Pattern;
+
+import liuwei.android.core.util.LogUtil;
 
 
 @SuppressWarnings("UnusedDeclaration")

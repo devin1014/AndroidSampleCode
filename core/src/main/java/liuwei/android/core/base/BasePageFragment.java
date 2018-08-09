@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.core.base;
+package liuwei.android.core.base;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

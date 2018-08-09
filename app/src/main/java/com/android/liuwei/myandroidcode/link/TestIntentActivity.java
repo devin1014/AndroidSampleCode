@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
 
 import butterknife.OnClick;
+import liuwei.android.core.base.BaseActivity;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.core.base;
+package liuwei.android.core.base;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,10 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.android.liuwei.myandroidcode.core.util.LogUtil;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import liuwei.android.core.util.LogUtil;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
