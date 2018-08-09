@@ -1,11 +1,11 @@
 package com.android.liuwei.myandroidcode.cookie.thread;
 
-import com.android.liuwei.myandroidcode.core.util.IOUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+
+import liuwei.android.core.util.IOUtils;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

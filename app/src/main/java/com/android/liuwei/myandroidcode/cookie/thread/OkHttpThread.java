@@ -1,10 +1,10 @@
 package com.android.liuwei.myandroidcode.cookie.thread;
 
 import com.android.liuwei.myandroidcode.cookie.OkHttpClientManager;
-import com.android.liuwei.myandroidcode.core.util.IOUtils;
 
 import java.io.IOException;
 
+import liuwei.android.core.util.IOUtils;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;

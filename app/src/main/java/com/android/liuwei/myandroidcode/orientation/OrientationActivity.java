@@ -1,7 +1,8 @@
 package com.android.liuwei.myandroidcode.orientation;
 
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
+
+import liuwei.android.core.base.BaseActivity;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

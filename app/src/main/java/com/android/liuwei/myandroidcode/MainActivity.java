@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
+import liuwei.android.core.base.BaseActivity;
 
 public class MainActivity extends BaseActivity
 {

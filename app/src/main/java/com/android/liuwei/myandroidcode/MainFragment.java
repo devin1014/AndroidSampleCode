@@ -9,17 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.liuwei.myandroidcode.core.base.BaseFragment;
 import com.android.liuwei.myandroidcode.cookie.CookieActivity;
 import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.dialog.MyDialogActivity;
 import com.android.liuwei.myandroidcode.lebocast.LeboCastActivity;
 import com.android.liuwei.myandroidcode.link.LinkActivity;
 import com.android.liuwei.myandroidcode.orientation.OrientationActivity;
-import com.android.liuwei.myandroidcode.core.widget.ListAdapter;
-import com.android.liuwei.myandroidcode.core.widget.ListAdapter.Callback;
 
 import butterknife.BindView;
+import liuwei.android.core.base.BaseFragment;
+import liuwei.android.core.widget.ListAdapter;
+import liuwei.android.core.widget.ListAdapter.Callback;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -47,7 +47,7 @@ public class MainFragment extends BaseFragment
     {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mRecyclerView.setAdapter(new ListAdapter(getActivity(), MenuList.getMenus(), mCallback));
+        mRecyclerView.setAdapter(new ListAdapter(getActivity(), MenuList.getMenus(), mCallback,R.layout.comp_nav_list));
     }
 
     private ListAdapter.Callback mCallback = new Callback()

@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.core.util;
+package liuwei.android.core.util;
 
 import android.util.Log;
 

@@ -18,11 +18,11 @@ import com.android.liuwei.myandroidcode.cookie.thread.LogInUserNameConnectThread
 import com.android.liuwei.myandroidcode.cookie.thread.LogInUserNameThread;
 import com.android.liuwei.myandroidcode.cookie.thread.UserThumbNailConnectThread;
 import com.android.liuwei.myandroidcode.cookie.thread.UserThumbNailThread;
-import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
 
 import butterknife.BindView;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
+import liuwei.android.core.base.BasePageFragment;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

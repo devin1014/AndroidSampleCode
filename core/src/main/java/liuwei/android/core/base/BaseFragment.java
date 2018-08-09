@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.core.base;
+package liuwei.android.core.base;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

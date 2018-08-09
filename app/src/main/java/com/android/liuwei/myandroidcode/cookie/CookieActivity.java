@@ -12,12 +12,12 @@ import android.util.SparseArray;
 
 import com.android.liuwei.myandroidcode.OkHttpCookieStore;
 import com.android.liuwei.myandroidcode.R;
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
-import com.android.liuwei.myandroidcode.core.base.BasePageFragment;
 
 import java.net.URI;
 
 import butterknife.BindView;
+import liuwei.android.core.base.BaseActivity;
+import liuwei.android.core.base.BasePageFragment;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

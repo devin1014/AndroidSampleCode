@@ -8,11 +8,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AlertDialog.Builder;
 
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
 import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
 
 import butterknife.OnClick;
+import liuwei.android.core.base.BaseActivity;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)

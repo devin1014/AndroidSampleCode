@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
 import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoHelper.DeviceInfo;
 
 import butterknife.BindView;
+import liuwei.android.core.base.BaseActivity;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
