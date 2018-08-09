@@ -47,7 +47,7 @@ public class CookieActivity extends BaseActivity
         mViewPager.setOffscreenPageLimit(2);
         mTabLayout.setupWithViewPager(mViewPager);
 
-        CookieSyncManagerCompat.getInstance().addSyncHost(URI.create(CookieConstant.URL_VIP_SPORTS));
+        CookieSyncManagerCompat.getInstance().addSyncHost(URI.create(CookieConstant.URL_VIP_SPORTS), "passport");
         CookieSyncManagerCompat.getInstance().setSyncCookieStore(this, (OkHttpCookieStore) OkHttpClientManager.getOkHttpClient().cookieJar());
     }
 

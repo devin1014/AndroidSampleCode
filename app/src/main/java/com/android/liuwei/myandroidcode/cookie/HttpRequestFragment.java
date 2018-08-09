@@ -122,6 +122,14 @@ public class HttpRequestFragment extends BasePageFragment
         mRequestByOkHttp = !checked;
     }
 
+    @Override
+    public void onUnselected()
+    {
+        super.onUnselected();
+
+        CookieSyncManagerCompat.getInstance().sync();
+    }
+
     private void clearResponseValue()
     {
         if (mHttpResponse != null)

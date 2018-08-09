@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.android.liuwei.myandroidcode.R;
+import com.android.liuwei.myandroidcode.core.base.BaseActivity;
 import com.hpplay.sdk.source.api.IConnectListener;
 import com.hpplay.sdk.source.api.ILelinkPlayerListener;
 import com.hpplay.sdk.source.api.LelinkPlayer;
@@ -83,7 +83,7 @@ public class LeboCastActivity extends BaseActivity
         @Override
         public void onBrowse(int resultCode, final List<LelinkServiceInfo> list)
         {
-            Logger.d(getClass().getSimpleName() + " onBrowse(int resultCode, List<LelinkServiceInfo> list): %s,%s", resultCode, list != null ? list.size() : 0);
+            //Logger.d(getClass().getSimpleName() + " onBrowse(int resultCode, List<LelinkServiceInfo> list): %s,%s", resultCode, list != null ? list.size() : 0);
 
             mHandler.post(new Runnable()
             {
@@ -137,6 +137,24 @@ public class LeboCastActivity extends BaseActivity
         mLelinkServiceManager.stopBrowse();
     }
 
+    @OnClick(R.id.cast_disconnect)
+    public void disconnect()
+    {
+        if (null != mLelinkServiceManager)
+        {
+            mLelinkServiceManager.release();
+        }
+    }
+
+    @OnClick(R.id.cast_stop_play)
+    public void stopPlay()
+    {
+        if (null != mLelinkPlayer)
+        {
+            mLelinkPlayer.stop();
+        }
+    }
+
     private LelinkPlayer mLelinkPlayer;
 
     private void connect(LelinkServiceInfo info)
@@ -144,13 +162,13 @@ public class LeboCastActivity extends BaseActivity
         LelinkPlayer leLinkPlayer = new LelinkPlayer(this);
         leLinkPlayer.setConnectListener(mIConnectListener);
         leLinkPlayer.setPlayerListener(mILelinkPlayerListener);
-        leLinkPlayer.connect(info);
-        //        LelinkPlayerInfo lelinkPlayerInfo = new LelinkPlayerInfo();
-        //        lelinkPlayerInfo.setLelinkServiceInfo(info);
-        //        lelinkPlayerInfo.setType(LelinkPlayerInfo.TYPE_VIDEO);
-        //        lelinkPlayerInfo.setUrl("https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/x-is-here/iphone-x-is-here-cn-20171027_1280x720h.mp4");
-        //        leLinkPlayer.setDataSource(lelinkPlayerInfo);
-        //        leLinkPlayer.start();
+        //leLinkPlayer.connect(info);
+        LelinkPlayerInfo lelinkPlayerInfo = new LelinkPlayerInfo();
+        lelinkPlayerInfo.setLelinkServiceInfo(info);
+        lelinkPlayerInfo.setType(LelinkPlayerInfo.TYPE_VIDEO);
+        lelinkPlayerInfo.setUrl("https://neulionds1898lon-a.akamaihd.net/nldsu/osn/live1/as/live/nlncp/live1_hd_ipad.m3u8");
+        leLinkPlayer.setDataSource(lelinkPlayerInfo);
+        leLinkPlayer.start();
 
         mLelinkPlayer = leLinkPlayer;
     }
@@ -172,17 +190,17 @@ public class LeboCastActivity extends BaseActivity
 
             Logger.w("连接成功 " + lelinkServiceInfo.getName() + " %s", i);
 
-            LelinkPlayer leLinkPlayer = mLelinkPlayer;
-            if (leLinkPlayer != null)
-            {
-                LelinkPlayerInfo lelinkPlayerInfo = new LelinkPlayerInfo();
-                lelinkPlayerInfo.setLelinkServiceInfo(lelinkServiceInfo);
-                lelinkPlayerInfo.setType(LelinkPlayerInfo.TYPE_VIDEO);
-                //lelinkPlayerInfo.setUrl("https://playerdemo.freewheel.tv/hls/stream/live.m3u8");
-                lelinkPlayerInfo.setUrl("http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8");
-                leLinkPlayer.setDataSource(lelinkPlayerInfo);
-                leLinkPlayer.start();
-            }
+            //            LelinkPlayer leLinkPlayer = mLelinkPlayer;
+            //            if (leLinkPlayer != null)
+            //            {
+            //                LelinkPlayerInfo lelinkPlayerInfo = new LelinkPlayerInfo();
+            //                lelinkPlayerInfo.setLelinkServiceInfo(lelinkServiceInfo);
+            //                lelinkPlayerInfo.setType(LelinkPlayerInfo.TYPE_VIDEO);
+            //                //lelinkPlayerInfo.setUrl("https://playerdemo.freewheel.tv/hls/stream/live.m3u8");
+            //                lelinkPlayerInfo.setUrl("http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8");
+            //                leLinkPlayer.setDataSource(lelinkPlayerInfo);
+            //                leLinkPlayer.start();
+            //            }
         }
 
         @Override
@@ -199,26 +217,31 @@ public class LeboCastActivity extends BaseActivity
         @Override
         public void onStart()
         {
+            Logger.d("onStart");
         }
 
         @Override
         public void onPause()
         {
+            Logger.d("onPause");
         }
 
         @Override
         public void onCompletion()
         {
+            Logger.d("onCompletion");
         }
 
         @Override
         public void onStop()
         {
+            Logger.d("onStop");
         }
 
         @Override
         public void onSeekComplete(int i)
         {
+            Logger.d("onSeekComplete");
         }
 
         @Override
@@ -236,21 +259,23 @@ public class LeboCastActivity extends BaseActivity
         @Override
         public void onVolumeChanged(float v)
         {
+            Logger.d("onStart");
         }
 
         @Override
         public void onPositionUpdate(long l, long l1)
         {
+            //Logger.d("onStart");
         }
     };
 
     @Override
     protected void onDestroy()
     {
-        //        if (null != mLelinkServiceManager)
-        //        {
-        //            mLelinkServiceManager.release();
-        //        }
+        if (null != mLelinkServiceManager)
+        {
+            mLelinkServiceManager.release();
+        }
 
         super.onDestroy();
     }

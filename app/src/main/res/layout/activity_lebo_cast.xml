@@ -27,6 +27,22 @@
             android:textSize="10dp"
             tools:ignore="SpUsage" />
 
+        <Button
+            android:id="@+id/cast_disconnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="断开连接"
+            android:textSize="10dp"
+            tools:ignore="SpUsage" />
+
+        <Button
+            android:id="@+id/cast_stop_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止播放"
+            android:textSize="10dp"
+            tools:ignore="SpUsage" />
+
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

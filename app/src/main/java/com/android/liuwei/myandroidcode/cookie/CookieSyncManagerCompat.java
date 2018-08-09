@@ -1,11 +1,13 @@
 package com.android.liuwei.myandroidcode.cookie;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.android.liuwei.myandroidcode.OkHttpCookieStore;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -13,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 import okhttp3.Cookie;
-import okhttp3.HttpUrl;
 
 /**
  * User: liuwei(wei.liu@neulion.com.com)
@@ -36,20 +37,20 @@ public class CookieSyncManagerCompat
 
     private OkHttpCookieStore mOkHttpCookieStore;
 
-    private java.net.CookieManager mJavaNetCookieStore;
+    //private java.net.CookieManager mJavaNetCookieStore;
 
     private CookieSyncManagerCompat()
     {
         android.webkit.CookieManager.getInstance().setAcceptCookie(true);
     }
 
-    public void setSyncCookieStore(Context context, OkHttpCookieStore cookieStore, java.net.CookieManager cookieHandler)
+    public void setSyncCookieStore(Context context, OkHttpCookieStore cookieStore)
     {
         android.webkit.CookieSyncManager.createInstance(context);
 
         mOkHttpCookieStore = cookieStore;
 
-        mJavaNetCookieStore = cookieHandler;
+        //mJavaNetCookieStore = cookieHandler;
     }
 
     public synchronized void addSyncHost(URI uri, String... cookieName)
@@ -66,51 +67,35 @@ public class CookieSyncManagerCompat
         {
             for (URI uri : mSyncHostMap.keySet())
             {
-                String host = uri.getHost();
-
                 List<Cookie> originalHttpCookies = Collections.unmodifiableList(mOkHttpCookieStore.getCookie(uri));
 
                 //sync webview to OkHttp & java.net.URLConnection
                 {
-                    String webCookie = android.webkit.CookieManager.getInstance().getCookie(host);
+                    String webkitCookie = android.webkit.CookieManager.getInstance().getCookie(uri.getHost());
 
-                    if (!TextUtils.isEmpty(webCookie))
+                    if (!TextUtils.isEmpty(webkitCookie))
                     {
-                        HttpUrl httpUrl = HttpUrl.get(uri);
+                        List<Cookie> cookies = parseWebkitCookie(uri, webkitCookie, mSyncHostMap.get(uri));
 
-                        String[] cookieArray = webCookie.split(";");
-
-                        for (String c : cookieArray)
+                        for (Cookie c : cookies)
                         {
-                            //to OkHttp
-                            if (httpUrl != null)
-                            {
-                                mOkHttpCookieStore.addCookie(uri, Cookie.parse(httpUrl, c));
-                            }
-                            else
-                            {
-                                String[] pair = c.split("=");
+                            mOkHttpCookieStore.addCookie(uri, c);
 
-                                String name = pair[0].trim();
-
-                                String value = pair[1].trim();
-
-                                mOkHttpCookieStore.addCookie(uri, new Cookie.Builder().domain(host).name(name).value(value).build());
-                            }
-
-                            //to URLConnection
-                            //todo:sync
+                            //todo:sync cookieHandler
                         }
                     }
                 }
 
                 //sync okhttp to webview
+                if (originalHttpCookies != null && originalHttpCookies.size() > 0)
                 {
-                    if (originalHttpCookies != null)
+                    List<String> cookies = parseOkHttpCookie(originalHttpCookies, mSyncHostMap.get(uri));
+
+                    if (cookies.size() > 0)
                     {
-                        for (Cookie cookie : originalHttpCookies)
+                        for (String c : cookies)
                         {
-                            android.webkit.CookieManager.getInstance().setCookie(host, cookie.toString());
+                            android.webkit.CookieManager.getInstance().setCookie(uri.getHost(), c);
                         }
 
                         android.webkit.CookieSyncManager.getInstance().sync();
@@ -118,5 +103,83 @@ public class CookieSyncManagerCompat
                 }
             }
         }
+    }
+
+    private List<Cookie> parseWebkitCookie(@NonNull URI uri, String cookies, List<String> filter)
+    {
+        if (TextUtils.isEmpty(cookies))
+        {
+            return Collections.emptyList();
+        }
+
+        String[] arrays = cookies.split(";");
+
+        List<Cookie> result = new ArrayList<>();
+
+        for (String cookie : arrays)
+        {
+            boolean add = filter == null || filter.size() == 0;
+
+            final String[] splits = cookie.trim().split("=");
+
+            final String name = splits[0].trim();
+
+            final String value = splits[1].trim();
+
+            if (!add)
+            {
+                for (String f : filter)
+                {
+                    if (name.equalsIgnoreCase(f))
+                    {
+                        add = true;
+
+                        break;
+                    }
+                }
+            }
+
+            if (add)
+            {
+                result.add(new Cookie.Builder().domain(uri.getHost()).name(name).value(value).build());
+            }
+        }
+
+        return result;
+    }
+
+    private List<String> parseOkHttpCookie(List<Cookie> cookies, List<String> filter)
+    {
+        if (cookies == null || cookies.size() == 0)
+        {
+            return Collections.emptyList();
+        }
+
+        List<String> result = new ArrayList<>();
+
+        for (Cookie cookie : cookies)
+        {
+            boolean add = filter == null || filter.size() == 0;
+
+            if (!add)
+            {
+                for (String f : filter)
+                {
+                    if (cookie.name().equalsIgnoreCase(f))
+                    {
+                        add = true;
+
+                        break;
+                    }
+                }
+            }
+
+            if (add)
+            {
+                result.add(cookie.toString());
+            }
+        }
+
+        return result;
     }
 }
