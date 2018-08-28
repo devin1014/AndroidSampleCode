@@ -15,6 +15,7 @@ import com.android.liuwei.myandroidcode.dialog.MyDialogActivity;
 import com.android.liuwei.myandroidcode.lebocast.LeboCastActivity;
 import com.android.liuwei.myandroidcode.link.LinkActivity;
 import com.android.liuwei.myandroidcode.orientation.OrientationActivity;
+import com.android.liuwei.myandroidcode.service.ServiceActivity;
 
 import butterknife.BindView;
 import liuwei.android.core.base.BaseFragment;
@@ -47,7 +48,7 @@ public class MainFragment extends BaseFragment
     {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mRecyclerView.setAdapter(new ListAdapter(getActivity(), MenuList.getMenus(), mCallback,R.layout.comp_nav_list));
+        mRecyclerView.setAdapter(new ListAdapter(getActivity(), MenuList.getMenus(), mCallback, R.layout.comp_nav_list));
     }
 
     private ListAdapter.Callback mCallback = new Callback()
@@ -91,6 +92,12 @@ public class MainFragment extends BaseFragment
                 case MenuList.MENU_LEBOCAST:
 
                     LeboCastActivity.startActivity(getActivity(), LeboCastActivity.class);
+
+                    break;
+
+                case MenuList.MENU_SERVICE:
+
+                    ServiceActivity.startActivity(getActivity(), ServiceActivity.class);
 
                     break;
             }

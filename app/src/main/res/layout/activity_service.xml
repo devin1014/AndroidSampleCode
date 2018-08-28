@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,SpUsage">
+
+    <Button
+        android:id="@+id/service_start_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Service"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/service_stop_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Service"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/service_bind_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bind Service"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/service_unbind_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unbind Service"
+        android:textSize="12dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:background="#888888" />
+
+    <Button
+        android:id="@+id/service_new_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Service Activity2"
+        android:textSize="12dp" />
+
+</LinearLayout>

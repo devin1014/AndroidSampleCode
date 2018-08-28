@@ -13,6 +13,11 @@ public class LogUtil
 
     private static final boolean DEBUG = true;
 
+    public static void log(Object object, String message)
+    {
+        log(parseObjectTag(object), message);
+    }
+
     public static void log(String tag, String message)
     {
         if (DEBUG)
@@ -21,7 +26,12 @@ public class LogUtil
         }
     }
 
-    public static void logInfo(String tag, String message)
+    public static void info(Object object, String message)
+    {
+        info(parseObjectTag(object), message);
+    }
+
+    public static void info(String tag, String message)
     {
         if (DEBUG)
         {
@@ -29,7 +39,12 @@ public class LogUtil
         }
     }
 
-    public static void logWarn(String tag, String message)
+    public static void warn(Object object, String message)
+    {
+        warn(parseObjectTag(object), message);
+    }
+
+    public static void warn(String tag, String message)
     {
         if (DEBUG)
         {
@@ -37,11 +52,26 @@ public class LogUtil
         }
     }
 
-    public static void logError(String tag, String message)
+    public static void error(Object object, String message)
+    {
+        error(parseObjectTag(object), message);
+    }
+
+    public static void error(String tag, String message)
     {
         if (DEBUG)
         {
             Log.e(TAG + tag, message);
         }
+    }
+
+    private static String parseObjectTag(Object object)
+    {
+        if (object == null)
+        {
+            return "NULL";
+        }
+
+        return String.format("%s[%s]", object.getClass().getSimpleName(), Integer.toHexString(object.hashCode()));
     }
 }

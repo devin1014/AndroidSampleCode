@@ -152,7 +152,7 @@ public abstract class BaseLifeTrackFragment extends BaseFragment
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
-        LogUtil.logInfo(TAG, "onConfigurationChanged:" + newConfig);
+        LogUtil.info(TAG, "onConfigurationChanged:" + newConfig);
 
         super.onConfigurationChanged(newConfig);
     }

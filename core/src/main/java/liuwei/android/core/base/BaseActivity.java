@@ -30,7 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
-        LogUtil.log(TAG, "onCreate:" + savedInstanceState);
+        LogUtil.log(TAG, "onCreate:" + (savedInstanceState != null ? savedInstanceState : ""));
 
         super.onCreate(savedInstanceState);
 
@@ -62,15 +62,13 @@ public abstract class BaseActivity extends AppCompatActivity
     {
         LogUtil.log(TAG, "onResume");
 
-        LogUtil.log(TAG, "---------------------------------->");
-
         super.onResume();
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState)
     {
-        LogUtil.log(TAG, "onRestoreInstanceState:" + savedInstanceState);
+        LogUtil.log(TAG, "onRestoreInstanceState:" + (savedInstanceState != null ? savedInstanceState : ""));
 
         super.onRestoreInstanceState(savedInstanceState);
     }
@@ -78,7 +76,7 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(Bundle outState)
     {
-        LogUtil.log(TAG, "onSaveInstanceState:" + outState);
+        LogUtil.log(TAG, "onSaveInstanceState:" + (outState != null ? outState : ""));
 
         super.onSaveInstanceState(outState);
     }
@@ -112,7 +110,7 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
-        LogUtil.logInfo(TAG, "onConfigurationChanged:" + newConfig);
+        LogUtil.info(TAG, "onConfigurationChanged:" + newConfig);
 
         super.onConfigurationChanged(newConfig);
     }

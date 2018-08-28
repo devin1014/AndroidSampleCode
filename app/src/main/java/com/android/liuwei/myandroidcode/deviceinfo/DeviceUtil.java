@@ -203,7 +203,7 @@ public class DeviceUtil
         {
             e.printStackTrace();
 
-            LogUtil.logWarn(DeviceUtil.class.getSimpleName(), e.toString());
+            LogUtil.warn(DeviceUtil.class.getSimpleName(), e.toString());
         }
 
         // get serial number
@@ -229,7 +229,7 @@ public class DeviceUtil
         {
             e.printStackTrace();
 
-            LogUtil.logWarn(DeviceUtil.class.getSimpleName(), e.toString());
+            LogUtil.warn(DeviceUtil.class.getSimpleName(), e.toString());
         }
 
         // get Android ID
@@ -246,7 +246,7 @@ public class DeviceUtil
         {
             e.printStackTrace();
 
-            LogUtil.logWarn(DeviceUtil.class.getSimpleName(), e.toString());
+            LogUtil.warn(DeviceUtil.class.getSimpleName(), e.toString());
         }
 
         return null;
@@ -269,7 +269,7 @@ public class DeviceUtil
         {
             e.printStackTrace();
 
-            LogUtil.logWarn(DeviceUtil.class.getSimpleName(), e.toString());
+            LogUtil.warn(DeviceUtil.class.getSimpleName(), e.toString());
         }
         return versionStr;
     }
@@ -291,7 +291,7 @@ public class DeviceUtil
         {
             e.printStackTrace();
 
-            LogUtil.logWarn(DeviceUtil.class.getSimpleName(), e.toString());
+            LogUtil.warn(DeviceUtil.class.getSimpleName(), e.toString());
         }
         return versionCode;
     }
@@ -308,7 +308,7 @@ public class DeviceUtil
         {
             e.printStackTrace();
 
-            LogUtil.logWarn(DeviceUtil.class.getSimpleName(), e.toString());
+            LogUtil.warn(DeviceUtil.class.getSimpleName(), e.toString());
 
         }
 
@@ -412,7 +412,7 @@ public class DeviceUtil
         {
             e.printStackTrace();
 
-            LogUtil.logWarn(DeviceUtil.class.getSimpleName(), e.toString());
+            LogUtil.warn(DeviceUtil.class.getSimpleName(), e.toString());
         }
         return null;
     }

@@ -10,6 +10,8 @@ import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 
+import liuwei.android.core.util.LogUtil;
+
 /**
  * User: liuwei(wei.liu@neulion.com.com)
  * Date: 2018-06-11
@@ -20,6 +22,8 @@ public class DemoApplication extends Application
     @Override
     public void onCreate()
     {
+        LogUtil.info(this, "application create!!!");
+
         super.onCreate();
 
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
@@ -40,5 +44,29 @@ public class DemoApplication extends Application
         Stetho.initializeWithDefaults(this);
 
         OkHttpClientManager.init(this);
+    }
+
+    @Override
+    public void onTerminate()
+    {
+        LogUtil.warn(this, "onTerminate");
+
+        super.onTerminate();
+    }
+
+    @Override
+    public void onTrimMemory(int level)
+    {
+        LogUtil.warn(this, "onTrimMemory:" + level);
+
+        super.onTrimMemory(level);
+    }
+
+    @Override
+    public void onLowMemory()
+    {
+        LogUtil.warn(this, "onLowMemory");
+
+        super.onLowMemory();
     }
 }
