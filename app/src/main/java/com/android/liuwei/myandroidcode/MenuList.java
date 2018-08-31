@@ -17,6 +17,7 @@ public class MenuList
     public static final String MENU_DIALOG = "Dialog";
     public static final String MENU_LEBOCAST = "LeboCast";
     public static final String MENU_SERVICE = "Service";
+    public static final String MENU_FRAGMENT = "Fragment";
 
     private static List<String> MENUS = new ArrayList<>();
 
@@ -29,6 +30,7 @@ public class MenuList
         MENUS.add(MENU_DIALOG);
         MENUS.add(MENU_LEBOCAST);
         MENUS.add(MENU_SERVICE);
+        MENUS.add(MENU_FRAGMENT);
     }
 
     public static List<String> getMenus()

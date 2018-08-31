@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.android.liuwei.myandroidcode.cookie.CookieActivity;
 import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.dialog.MyDialogActivity;
+import com.android.liuwei.myandroidcode.fragment.FragmentActivity;
 import com.android.liuwei.myandroidcode.lebocast.LeboCastActivity;
 import com.android.liuwei.myandroidcode.link.LinkActivity;
 import com.android.liuwei.myandroidcode.orientation.OrientationActivity;
@@ -98,6 +99,12 @@ public class MainFragment extends BaseFragment
                 case MenuList.MENU_SERVICE:
 
                     ServiceActivity.startActivity(getActivity(), ServiceActivity.class);
+
+                    break;
+
+                case MenuList.MENU_FRAGMENT:
+
+                    FragmentActivity.startActivity(getActivity(), FragmentActivity.class);
 
                     break;
             }
