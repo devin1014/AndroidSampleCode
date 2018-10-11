@@ -1,5 +1,4 @@
 /*
- * Copyright (c) 2011 NeuLion, Inc. All Rights Reserved.
  */
 package com.android.liuwei.myandroidcode.deviceinfo;
 
@@ -77,7 +76,6 @@ public class DeviceUtil
 
         sb.append(defaultUA);
 
-        // NeuLion
         sb.append(" ");
         sb.append(getNLDeviceType(appContext));
 
