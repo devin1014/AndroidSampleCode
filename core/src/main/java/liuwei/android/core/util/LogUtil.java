@@ -3,7 +3,7 @@ package liuwei.android.core.util;
 import android.util.Log;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-04-16
  * Time: 18:07
  */

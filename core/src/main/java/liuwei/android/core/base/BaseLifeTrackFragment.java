@@ -14,7 +14,7 @@ import liuwei.android.core.util.LogUtil;
 
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-15
  * Time: 16:07
  */

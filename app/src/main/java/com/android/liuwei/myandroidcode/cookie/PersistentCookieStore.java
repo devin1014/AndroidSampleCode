@@ -26,7 +26,7 @@ import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-12
  * Time: 15:00
  */

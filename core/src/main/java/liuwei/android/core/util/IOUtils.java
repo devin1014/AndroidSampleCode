@@ -12,7 +12,7 @@ import okhttp3.Headers;
 import okhttp3.Response;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-05-04
  * Time: 16:16
  */

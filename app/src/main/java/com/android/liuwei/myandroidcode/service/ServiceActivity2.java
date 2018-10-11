@@ -7,7 +7,7 @@ import com.android.liuwei.myandroidcode.R;
 import butterknife.OnClick;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-08-09
  * Time: 11:40
  */

@@ -3,7 +3,7 @@ package com.android.liuwei.myandroidcode.cookie.thread;
 import com.orhanobut.logger.Logger;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-12
  * Time: 15:35
  */

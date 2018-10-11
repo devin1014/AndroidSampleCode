@@ -7,7 +7,7 @@ import java.util.Set;
 import okhttp3.Cookie;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-27
  * Time: 11:32
  */

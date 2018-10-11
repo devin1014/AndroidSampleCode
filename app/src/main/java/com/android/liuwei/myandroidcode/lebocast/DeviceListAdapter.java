@@ -12,7 +12,7 @@ import com.hpplay.sdk.source.browse.api.LelinkServiceInfo;
 import java.util.List;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-20
  * Time: 14:27
  */

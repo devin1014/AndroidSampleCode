@@ -13,7 +13,7 @@ import liuwei.android.core.base.BaseActivity;
 import liuwei.android.core.util.LogUtil;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-08-09
  * Time: 11:35
  */

@@ -15,7 +15,7 @@ import com.android.liuwei.myandroidcode.R;
 import liuwei.android.core.util.LogUtil;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-08-28
  * Time: 18:43
  */

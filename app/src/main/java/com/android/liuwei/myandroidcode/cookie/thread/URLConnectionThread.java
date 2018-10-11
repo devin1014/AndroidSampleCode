@@ -8,7 +8,7 @@ import java.net.URLConnection;
 import liuwei.android.core.util.IOUtils;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-27
  * Time: 17:31
  */

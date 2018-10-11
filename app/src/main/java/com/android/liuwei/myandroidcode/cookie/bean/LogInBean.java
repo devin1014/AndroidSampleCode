@@ -3,7 +3,7 @@ package com.android.liuwei.myandroidcode.cookie.bean;
 import java.util.List;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-11
  * Time: 16:09
  */

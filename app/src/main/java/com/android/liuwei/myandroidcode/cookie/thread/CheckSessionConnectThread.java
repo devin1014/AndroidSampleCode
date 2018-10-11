@@ -1,7 +1,7 @@
 package com.android.liuwei.myandroidcode.cookie.thread;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-27
  * Time: 17:33
  */

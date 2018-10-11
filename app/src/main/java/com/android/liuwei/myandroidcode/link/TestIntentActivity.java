@@ -11,7 +11,7 @@ import butterknife.OnClick;
 import liuwei.android.core.base.BaseActivity;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-05-17
  * Time: 10:11
  */

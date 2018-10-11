@@ -15,7 +15,7 @@ import java.util.List;
 import liuwei.android.core.widget.ListAdapter.Holder;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-04-17
  * Time: 10:14
  */

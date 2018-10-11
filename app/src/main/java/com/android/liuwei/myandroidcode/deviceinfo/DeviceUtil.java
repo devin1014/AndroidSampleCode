@@ -79,7 +79,7 @@ public class DeviceUtil
 
         // NeuLion
         sb.append(" ");
-        sb.append(getNeuLionDeviceType(appContext));
+        sb.append(getNLDeviceType(appContext));
 
         final String appName = getAppName(appContext);
         if (checkUserAgent(appName))
@@ -133,7 +133,7 @@ public class DeviceUtil
         return uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION;
     }
 
-    public static String getNeuLionDeviceType(Context context)
+    public static String getNLDeviceType(Context context)
     {
         if (isAmazon())
         {

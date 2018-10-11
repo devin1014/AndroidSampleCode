@@ -1,7 +1,7 @@
 package liuwei.android.core.base;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-06-15
  * Time: 14:10
  */

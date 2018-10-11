@@ -25,7 +25,7 @@ import butterknife.OnClick;
 import liuwei.android.core.base.BasePageFragment;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-05-04
  * Time: 16:01
  */

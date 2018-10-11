@@ -12,7 +12,7 @@ import butterknife.Unbinder;
 import liuwei.android.core.util.LogUtil;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-04-16
  * Time: 18:26
  */

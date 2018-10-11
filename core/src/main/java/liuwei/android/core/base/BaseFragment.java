@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * User: liuwei(wei.liu@neulion.com.com)
+ * User: liuwei
  * Date: 2018-04-16
  * Time: 18:17
  */
