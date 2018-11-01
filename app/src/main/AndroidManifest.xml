@@ -77,6 +77,8 @@
 
         <activity android:name=".service.ServiceActivity2" />
         <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".eventbus.EventBusDemoActivity" />
+        <activity android:name=".eventbus.EventBusDetailActivity" />
 
         <!--################################-->
         <!--service-->

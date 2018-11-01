@@ -18,6 +18,7 @@ public class MenuList
     public static final String MENU_LEBOCAST = "LeboCast";
     public static final String MENU_SERVICE = "Service";
     public static final String MENU_FRAGMENT = "Fragment";
+    public static final String MENU_EVENTBUS = "EventBus";
 
     private static List<String> MENUS = new ArrayList<>();
 
@@ -31,6 +32,7 @@ public class MenuList
         MENUS.add(MENU_LEBOCAST);
         MENUS.add(MENU_SERVICE);
         MENUS.add(MENU_FRAGMENT);
+        MENUS.add(MENU_EVENTBUS);
     }
 
     public static List<String> getMenus()
