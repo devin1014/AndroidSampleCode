@@ -79,6 +79,7 @@
         <activity android:name=".fragment.FragmentActivity" />
         <activity android:name=".eventbus.EventBusDemoActivity" />
         <activity android:name=".eventbus.EventBusDetailActivity" />
+        <activity android:name=".autosizetextview.AutoSizeTextViewActivity" />
 
         <!--################################-->
         <!--service-->

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.liuwei.myandroidcode.autosizetextview.AutoSizeTextViewActivity;
 import com.android.liuwei.myandroidcode.cookie.CookieActivity;
 import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.dialog.MyDialogActivity;
@@ -112,6 +113,12 @@ public class MainFragment extends BaseFragment
                 case MenuList.MENU_EVENTBUS:
 
                     FragmentActivity.startActivity(getActivity(), EventBusDemoActivity.class);
+
+                    break;
+
+                case MenuList.MENU_AUTOSIZE:
+
+                    FragmentActivity.startActivity(getActivity(), AutoSizeTextViewActivity.class);
 
                     break;
             }
