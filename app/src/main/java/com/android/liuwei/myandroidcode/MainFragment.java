@@ -19,6 +19,7 @@ import com.android.liuwei.myandroidcode.lebocast.LeboCastActivity;
 import com.android.liuwei.myandroidcode.link.LinkActivity;
 import com.android.liuwei.myandroidcode.orientation.OrientationActivity;
 import com.android.liuwei.myandroidcode.service.ServiceActivity;
+import com.android.liuwei.myandroidcode.theme.DayNightDemoActivity;
 
 import butterknife.BindView;
 import liuwei.android.core.base.BaseFragment;
@@ -119,6 +120,12 @@ public class MainFragment extends BaseFragment
                 case MenuList.MENU_AUTOSIZE:
 
                     FragmentActivity.startActivity(getActivity(), AutoSizeTextViewActivity.class);
+
+                    break;
+
+                case MenuList.MENU_THEME_DAYNIGHT:
+
+                    FragmentActivity.startActivity(getActivity(), DayNightDemoActivity.class);
 
                     break;
             }

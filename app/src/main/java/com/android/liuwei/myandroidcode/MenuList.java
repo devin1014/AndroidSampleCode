@@ -20,6 +20,7 @@ public class MenuList
     public static final String MENU_FRAGMENT = "Fragment";
     public static final String MENU_EVENTBUS = "EventBus";
     public static final String MENU_AUTOSIZE = "AutoSize";
+    public static final String MENU_THEME_DAYNIGHT = "DayNightTheme";
 
     private static List<String> MENUS = new ArrayList<>();
 
@@ -35,6 +36,7 @@ public class MenuList
         MENUS.add(MENU_FRAGMENT);
         MENUS.add(MENU_EVENTBUS);
         MENUS.add(MENU_AUTOSIZE);
+        MENUS.add(MENU_THEME_DAYNIGHT);
     }
 
     public static List<String> getMenus()
