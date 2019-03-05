@@ -81,6 +81,7 @@
         <activity android:name=".eventbus.EventBusDetailActivity" />
         <activity android:name=".autosizetextview.AutoSizeTextViewActivity" />
         <activity android:name=".theme.DayNightDemoActivity" />
+        <activity android:name=".demo.SimpleDemoActivity" />
 
         <!--################################-->
         <!--service-->

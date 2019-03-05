@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.android.liuwei.myandroidcode.autosizetextview.AutoSizeTextViewActivity;
 import com.android.liuwei.myandroidcode.cookie.CookieActivity;
+import com.android.liuwei.myandroidcode.demo.SimpleDemoActivity;
 import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.dialog.MyDialogActivity;
 import com.android.liuwei.myandroidcode.eventbus.EventBusDemoActivity;
@@ -126,6 +127,12 @@ public class MainFragment extends BaseFragment
                 case MenuList.MENU_THEME_DAYNIGHT:
 
                     FragmentActivity.startActivity(getActivity(), DayNightDemoActivity.class);
+
+                    break;
+
+                case MenuList.MENU_SIMPLE_DEMO:
+
+                    FragmentActivity.startActivity(getActivity(), SimpleDemoActivity.class);
 
                     break;
             }

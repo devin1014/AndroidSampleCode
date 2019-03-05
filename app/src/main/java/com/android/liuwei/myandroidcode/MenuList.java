@@ -21,6 +21,7 @@ public class MenuList
     public static final String MENU_EVENTBUS = "EventBus";
     public static final String MENU_AUTOSIZE = "AutoSize";
     public static final String MENU_THEME_DAYNIGHT = "DayNightTheme";
+    public static final String MENU_SIMPLE_DEMO = "SimpleDemoActivity";
 
     private static List<String> MENUS = new ArrayList<>();
 
@@ -37,6 +38,7 @@ public class MenuList
         MENUS.add(MENU_EVENTBUS);
         MENUS.add(MENU_AUTOSIZE);
         MENUS.add(MENU_THEME_DAYNIGHT);
+        MENUS.add(MENU_SIMPLE_DEMO);
     }
 
     public static List<String> getMenus()
