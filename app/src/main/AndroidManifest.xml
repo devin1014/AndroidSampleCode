@@ -31,11 +31,11 @@
         </activity>
 
         <activity
-            android:name=".orientation.OrientationActivity"
+            android:name=".feature.orientation.OrientationActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensorLandscape" />
 
-        <activity android:name=".link.LinkActivity">
+        <activity android:name=".feature.link.LinkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -47,15 +47,15 @@
         </activity>
 
         <activity
-            android:name=".cookie.CookieActivity"
+            android:name=".feature.cookie.CookieActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".deviceinfo.DeviceInfoActivity"
+            android:name=".feature.deviceinfo.DeviceInfoActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".link.TestIntentActivity"
+            android:name=".feature.link.TestIntentActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor">
             <!--<intent-filter>-->
@@ -65,29 +65,36 @@
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name=".dialog.MyDialogActivity"
+            android:name=".feature.dialog.MyDialogActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".lebocast.LeboCastActivity"
+            android:name=".feature.lebocast.LeboCastActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor" />
 
-        <activity android:name=".service.ServiceActivity" />
+        <activity android:name=".feature.service.ServiceActivity" />
 
-        <activity android:name=".service.ServiceActivity2" />
-        <activity android:name=".fragment.FragmentActivity" />
-        <activity android:name=".eventbus.EventBusDemoActivity" />
-        <activity android:name=".eventbus.EventBusDetailActivity" />
-        <activity android:name=".autosizetextview.AutoSizeTextViewActivity" />
-        <activity android:name=".theme.DayNightDemoActivity" />
-        <activity android:name=".demo.SimpleDemoActivity" />
+        <activity android:name=".feature.service.ServiceActivity2" />
+        <activity android:name=".feature.fragment.FragmentActivity" />
+        <activity android:name=".feature.eventbus.EventBusDemoActivity" />
+        <activity android:name=".feature.eventbus.EventBusDetailActivity" />
+        <activity android:name=".feature.autosizetextview.AutoSizeTextViewActivity" />
+        <activity android:name=".feature.theme.DayNightDemoActivity" />
+        <activity android:name=".feature.demo.SimpleDemoActivity" />
+        <activity
+            android:name=".feature.process.RemoteActivity"
+            android:process=":remote_activity" />
+        <activity android:name=".feature.process.LocalActivity" />
 
         <!--################################-->
         <!--service-->
         <!--################################-->
-        <service android:name=".service.MyBackgroundService" />
-        <service android:name=".service.MyBackgroundIntentService" />
+        <service android:name=".feature.service.MyBackgroundService" />
+        <service android:name=".feature.service.MyBackgroundIntentService" />
+        <service
+            android:name=".feature.process.RemoteService"
+            android:process=":remote_service" />
 
     </application>
 

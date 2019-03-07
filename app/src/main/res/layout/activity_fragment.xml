@@ -35,17 +35,17 @@
 
     </LinearLayout>
 
-    <com.android.liuwei.myandroidcode.fragment.MyFrameLayout
+    <com.android.liuwei.myandroidcode.feature.fragment.MyFrameLayout
         android:layout_width="match_parent"
         android:layout_height="160dp">
 
         <fragment
-            android:name="com.android.liuwei.myandroidcode.fragment.TestFragment"
+            android:name="com.android.liuwei.myandroidcode.feature.fragment.TestFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:tag="fragment_test" />
 
-    </com.android.liuwei.myandroidcode.fragment.MyFrameLayout>
+    </com.android.liuwei.myandroidcode.feature.fragment.MyFrameLayout>
 
     <FrameLayout
         android:id="@+id/container_fragment"

@@ -1,16 +1,18 @@
 package com.android.liuwei.myandroidcode;
 
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Application;
+import android.content.Context;
 import android.support.annotation.Nullable;
 
-import com.android.liuwei.myandroidcode.cookie.OkHttpClientManager;
+import com.android.liuwei.myandroidcode.base.LogUtil;
+import com.android.liuwei.myandroidcode.feature.cookie.OkHttpClientManager;
 import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
-
-import liuwei.android.core.util.LogUtil;
 
 /**
  * User: liuwei
@@ -22,7 +24,22 @@ public class DemoApplication extends Application
     @Override
     public void onCreate()
     {
-        LogUtil.info(this, "application create!!!");
+        int pid = android.os.Process.myPid();
+        String processName = "NULL";
+
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+
+        assert activityManager != null;
+        for (RunningAppProcessInfo info : activityManager.getRunningAppProcesses())
+        {
+            if (info.pid == pid)
+            {
+                processName = info.processName;
+                break;
+            }
+        }
+
+        LogUtil.info(this, String.format("[pid=%s][%s] application create.", pid, processName));
 
         super.onCreate();
 
@@ -44,29 +61,5 @@ public class DemoApplication extends Application
         Stetho.initializeWithDefaults(this);
 
         OkHttpClientManager.init(this);
-    }
-
-    @Override
-    public void onTerminate()
-    {
-        LogUtil.warn(this, "onTerminate");
-
-        super.onTerminate();
-    }
-
-    @Override
-    public void onTrimMemory(int level)
-    {
-        LogUtil.warn(this, "onTrimMemory:" + level);
-
-        super.onTrimMemory(level);
-    }
-
-    @Override
-    public void onLowMemory()
-    {
-        LogUtil.warn(this, "onLowMemory");
-
-        super.onLowMemory();
     }
 }

@@ -9,23 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.liuwei.myandroidcode.autosizetextview.AutoSizeTextViewActivity;
-import com.android.liuwei.myandroidcode.cookie.CookieActivity;
-import com.android.liuwei.myandroidcode.demo.SimpleDemoActivity;
-import com.android.liuwei.myandroidcode.deviceinfo.DeviceInfoActivity;
-import com.android.liuwei.myandroidcode.dialog.MyDialogActivity;
-import com.android.liuwei.myandroidcode.eventbus.EventBusDemoActivity;
-import com.android.liuwei.myandroidcode.fragment.FragmentActivity;
-import com.android.liuwei.myandroidcode.lebocast.LeboCastActivity;
-import com.android.liuwei.myandroidcode.link.LinkActivity;
-import com.android.liuwei.myandroidcode.orientation.OrientationActivity;
-import com.android.liuwei.myandroidcode.service.ServiceActivity;
-import com.android.liuwei.myandroidcode.theme.DayNightDemoActivity;
+import com.android.liuwei.myandroidcode.ListAdapter.Callback;
+import com.android.liuwei.myandroidcode.MenuList.MenuInfo;
+import com.android.liuwei.myandroidcode.base.BaseFragment;
+import com.android.liuwei.myandroidcode.base.Utils;
 
 import butterknife.BindView;
-import liuwei.android.core.base.BaseFragment;
-import liuwei.android.core.widget.ListAdapter;
-import liuwei.android.core.widget.ListAdapter.Callback;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -60,82 +49,9 @@ public class MainFragment extends BaseFragment
     {
         @SuppressWarnings("ConstantConditions")
         @Override
-        public void onItemClick(String name)
+        public void onItemClick(MenuInfo menuInfo)
         {
-            switch (name)
-            {
-                case MenuList.MENU_ORIENTATION:
-
-                    OrientationActivity.startActivity(getActivity(), OrientationActivity.class);
-
-                    break;
-
-                case MenuList.MENU_LINK:
-
-                    LinkActivity.startActivity(getActivity(), LinkActivity.class);
-
-                    break;
-
-                case MenuList.MENU_COOKIE:
-
-                    CookieActivity.startActivity(getActivity(), CookieActivity.class);
-
-                    break;
-
-                case MenuList.MENU_DEVICE_INFO:
-
-                    DeviceInfoActivity.startActivity(getActivity(), DeviceInfoActivity.class);
-
-                    break;
-
-                case MenuList.MENU_DIALOG:
-
-                    MyDialogActivity.startActivity(getActivity(), MyDialogActivity.class);
-
-                    break;
-
-                case MenuList.MENU_LEBOCAST:
-
-                    LeboCastActivity.startActivity(getActivity(), LeboCastActivity.class);
-
-                    break;
-
-                case MenuList.MENU_SERVICE:
-
-                    ServiceActivity.startActivity(getActivity(), ServiceActivity.class);
-
-                    break;
-
-                case MenuList.MENU_FRAGMENT:
-
-                    FragmentActivity.startActivity(getActivity(), FragmentActivity.class);
-
-                    break;
-
-                case MenuList.MENU_EVENTBUS:
-
-                    FragmentActivity.startActivity(getActivity(), EventBusDemoActivity.class);
-
-                    break;
-
-                case MenuList.MENU_AUTOSIZE:
-
-                    FragmentActivity.startActivity(getActivity(), AutoSizeTextViewActivity.class);
-
-                    break;
-
-                case MenuList.MENU_THEME_DAYNIGHT:
-
-                    FragmentActivity.startActivity(getActivity(), DayNightDemoActivity.class);
-
-                    break;
-
-                case MenuList.MENU_SIMPLE_DEMO:
-
-                    FragmentActivity.startActivity(getActivity(), SimpleDemoActivity.class);
-
-                    break;
-            }
+            Utils.startActivity(getActivity(), menuInfo.clazz, menuInfo.extra);
         }
     };
 }
