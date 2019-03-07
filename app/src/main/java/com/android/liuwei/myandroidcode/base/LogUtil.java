@@ -9,7 +9,7 @@ import android.util.Log;
  */
 public class LogUtil
 {
-    private static final String TAG = "AndroidCode_";
+    private static final String TAG = "LIUWEI_";
 
     private static final boolean DEBUG = true;
 

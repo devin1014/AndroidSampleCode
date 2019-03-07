@@ -11,7 +11,42 @@
     <EditText
         android:id="@+id/input_edit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="啥内容都行"
+        android:inputType="text" />
+
+    <RadioGroup
+        android:id="@+id/car_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/car_bmw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="BMW" />
+
+        <RadioButton
+            android:id="@+id/car_benz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="BENZ" />
+
+        <RadioButton
+            android:id="@+id/car_audi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="AUDI" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/post"

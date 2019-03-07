@@ -18,7 +18,7 @@ public class RemoteService extends BaseService
     @Override
     public IBinder onBind(Intent intent)
     {
-        LogUtil.info(this, "onBind");
+        super.onBind(intent);
 
         return mMessenger.getBinder();
     }
@@ -30,13 +30,17 @@ public class RemoteService extends BaseService
         @Override
         public void handleMessage(Message msg)
         {
-            super.handleMessage(msg);
+            Bundle data = msg.getData();
 
-            LogUtil.info(this, String.format("handleMessage[%s]", msg.toString()));
+            data.setClassLoader(CarEntity.class.getClassLoader());
 
-            String text = msg.getData().getString("msg");
+            String text = data.getString("msg");
 
-            LogUtil.info(this, text);
+            CarEntity carEntity = data.getParcelable("car");
+
+            LogUtil.info(this, String.format("msg=%s", text));
+
+            LogUtil.info(this, String.format("car=%s", carEntity));
 
             Messenger replyMessenger = msg.replyTo;
 
@@ -48,6 +52,9 @@ public class RemoteService extends BaseService
 
             replyBundle.putString("msg", String.valueOf(System.currentTimeMillis()));
 
+            assert carEntity != null;
+            replyBundle.putParcelable("car", resetCar(carEntity));
+
             replyMsg.setData(replyBundle);
 
             try
@@ -58,6 +65,28 @@ public class RemoteService extends BaseService
             {
                 e.printStackTrace();
             }
+        }
+
+        private CarEntity resetCar(CarEntity carEntity)
+        {
+            if (carEntity.getName().equalsIgnoreCase("BMW"))
+            {
+                carEntity.setPrice(29.9f);
+            }
+            else if (carEntity.getName().equalsIgnoreCase("BENZ"))
+            {
+                carEntity.setPrice(33.4f);
+            }
+            else if (carEntity.getName().equalsIgnoreCase("AUDI"))
+            {
+                carEntity.setPrice(28.1f);
+            }
+            else
+            {
+                carEntity.setPrice(-1f);
+            }
+
+            return carEntity;
         }
     }
 }
