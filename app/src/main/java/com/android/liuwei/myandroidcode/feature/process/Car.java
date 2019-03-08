@@ -3,35 +3,35 @@ package com.android.liuwei.myandroidcode.feature.process;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class CarEntity implements Parcelable
+public class Car implements Parcelable
 {
-    public static CarEntity newBMW()
+    public static Car newBMW()
     {
-        return new CarEntity("BMW", "320Li", 0f);
+        return new Car("BMW", "320Li", 0f);
     }
 
-    public static CarEntity newBENZ()
+    public static Car newBENZ()
     {
-        return new CarEntity("BENZ", "C200L", 0f);
+        return new Car("BENZ", "C200L", 0f);
     }
 
-    public static CarEntity newAudi()
+    public static Car newAudi()
     {
-        return new CarEntity("AUDI", "A4L", 0f);
+        return new Car("AUDI", "A4L", 0f);
     }
 
     private String name;
     private String model;
     private float price;
 
-    public CarEntity(String name, String model, float price)
+    public Car(String name, String model, float price)
     {
         this.name = name;
         this.model = model;
         this.price = price;
     }
 
-    public CarEntity(Parcel in)
+    public Car(Parcel in)
     {
         name = in.readString();
         model = in.readString();
@@ -72,18 +72,18 @@ public class CarEntity implements Parcelable
         dest.writeFloat(price);
     }
 
-    public static final Creator<CarEntity> CREATOR = new Creator<CarEntity>()
+    public static final Creator<Car> CREATOR = new Creator<Car>()
     {
         @Override
-        public CarEntity createFromParcel(Parcel in)
+        public Car createFromParcel(Parcel in)
         {
-            return new CarEntity(in);
+            return new Car(in);
         }
 
         @Override
-        public CarEntity[] newArray(int size)
+        public Car[] newArray(int size)
         {
-            return new CarEntity[size];
+            return new Car[size];
         }
     };
 

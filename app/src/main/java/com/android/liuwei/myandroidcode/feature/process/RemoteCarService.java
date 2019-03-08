@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
 import com.android.liuwei.myandroidcode.base.BaseService;
 import com.android.liuwei.myandroidcode.base.LogUtil;
 
-public class RemoteService extends BaseService
+public class RemoteCarService extends BaseService
 {
     @Nullable
     @Override
@@ -32,15 +32,15 @@ public class RemoteService extends BaseService
         {
             Bundle data = msg.getData();
 
-            data.setClassLoader(CarEntity.class.getClassLoader());
+            data.setClassLoader(Car.class.getClassLoader());
 
-            String text = data.getString("msg");
+            float discount = data.getFloat("msg") / 10f + 0.2f;
 
-            CarEntity carEntity = data.getParcelable("car");
+            Car car = data.getParcelable("car");
 
-            LogUtil.info(this, String.format("msg=%s", text));
+            LogUtil.info(this, String.format("msg=%s", discount));
 
-            LogUtil.info(this, String.format("car=%s", carEntity));
+            LogUtil.info(this, String.format("car=%s", car));
 
             Messenger replyMessenger = msg.replyTo;
 
@@ -50,10 +50,10 @@ public class RemoteService extends BaseService
 
             Bundle replyBundle = new Bundle();
 
-            replyBundle.putString("msg", String.valueOf(System.currentTimeMillis()));
+            replyBundle.putFloat("msg", discount);
 
-            assert carEntity != null;
-            replyBundle.putParcelable("car", resetCar(carEntity));
+            assert car != null;
+            replyBundle.putParcelable("car", resetCar(car, discount));
 
             replyMsg.setData(replyBundle);
 
@@ -67,26 +67,26 @@ public class RemoteService extends BaseService
             }
         }
 
-        private CarEntity resetCar(CarEntity carEntity)
+        private Car resetCar(Car car, float discount)
         {
-            if (carEntity.getName().equalsIgnoreCase("BMW"))
+            if (car.getName().equalsIgnoreCase("BMW"))
             {
-                carEntity.setPrice(29.9f);
+                car.setPrice(30f * discount);
             }
-            else if (carEntity.getName().equalsIgnoreCase("BENZ"))
+            else if (car.getName().equalsIgnoreCase("BENZ"))
             {
-                carEntity.setPrice(33.4f);
+                car.setPrice(35f * discount);
             }
-            else if (carEntity.getName().equalsIgnoreCase("AUDI"))
+            else if (car.getName().equalsIgnoreCase("AUDI"))
             {
-                carEntity.setPrice(28.1f);
+                car.setPrice(25f * discount);
             }
             else
             {
-                carEntity.setPrice(-1f);
+                car.setPrice(-1f);
             }
 
-            return carEntity;
+            return car;
         }
     }
 }

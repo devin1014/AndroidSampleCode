@@ -20,10 +20,6 @@ public class RemoteActivity extends BaseActivity
     {
         super.onCreate(savedInstanceState);
 
-        ((TextView) findViewById(R.id.title)).setText(RemoteData.getData());
-
         ((TextView) findViewById(R.id.extra_info)).setText(getIntent().getStringExtra("extra_data"));
-
-        RemoteData.setData("RemoteActivity");
     }
 }

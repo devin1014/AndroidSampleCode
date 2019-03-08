@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.liuwei.myandroidcode.R;
 import com.android.liuwei.myandroidcode.base.BaseActivity;
@@ -25,7 +26,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 
-public class LocalActivity extends BaseActivity
+public class LocalCarActivity extends BaseActivity
 {
     @BindView(R.id.input_edit)
     EditText mInputEdit;
@@ -47,7 +48,7 @@ public class LocalActivity extends BaseActivity
     {
         super.onCreate(savedInstanceState);
 
-        bindService(new Intent(this, RemoteService.class), mServiceConnection, Service.BIND_AUTO_CREATE);
+        bindService(new Intent(this, RemoteCarService.class), mServiceConnection, Service.BIND_AUTO_CREATE);
 
         findViewById(R.id.post).setOnClickListener(mOnClickListener);
     }
@@ -82,9 +83,9 @@ public class LocalActivity extends BaseActivity
 
     private static class ReceiveHandler extends Handler
     {
-        LocalActivity mLocalActivity;
+        LocalCarActivity mLocalActivity;
 
-        ReceiveHandler(LocalActivity activity)
+        ReceiveHandler(LocalCarActivity activity)
         {
             mLocalActivity = activity;
         }
@@ -94,11 +95,14 @@ public class LocalActivity extends BaseActivity
         {
             Bundle data = msg.getData();
             data.setClassLoader(getClass().getClassLoader());
-            LogUtil.info(this, "msg=" + data.getString("msg"));
-            LogUtil.info(this, "car=" + data.getParcelable("car"));
-            if (mLocalActivity != null)
+            float discount = data.getFloat("msg");
+            Car car = data.getParcelable("car");
+            LogUtil.info(this, "msg=" + discount);
+            LogUtil.info(this, "car=" + car);
+            if (mLocalActivity != null && car != null)
             {
-                mLocalActivity.mReceiveText.setText(Objects.requireNonNull(data.getParcelable("car")).toString());
+                mLocalActivity.mReceiveText.setText(Objects.requireNonNull(car).toString());
+                Toast.makeText(mLocalActivity, "价格:" + car.getPrice(), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -117,7 +121,7 @@ public class LocalActivity extends BaseActivity
                 Message msg = Message.obtain();
                 msg.what = 1;
                 Bundle bundle = new Bundle();
-                bundle.putString("msg", text);
+                bundle.putFloat("msg", Float.valueOf(text));
                 bundle.putParcelable("car", getCar());
                 bundle.setClassLoader(getClassLoader());
                 msg.setData(bundle);
@@ -134,16 +138,16 @@ public class LocalActivity extends BaseActivity
         }
     };
 
-    private CarEntity getCar()
+    private Car getCar()
     {
         switch (mCarGroup.getCheckedRadioButtonId())
         {
             case R.id.car_bmw:
-                return CarEntity.newBMW();
+                return Car.newBMW();
             case R.id.car_benz:
-                return CarEntity.newBENZ();
+                return Car.newBENZ();
             case R.id.car_audi:
-                return CarEntity.newAudi();
+                return Car.newAudi();
             default:
                 return null;
         }

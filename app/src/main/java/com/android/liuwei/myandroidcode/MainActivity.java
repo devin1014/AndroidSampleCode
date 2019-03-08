@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.android.liuwei.myandroidcode.base.BaseActivity;
-import com.android.liuwei.myandroidcode.feature.process.RemoteData;
 
 public class MainActivity extends BaseActivity
 {
@@ -20,7 +19,5 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
-        RemoteData.setData("MainActivity");
     }
 }

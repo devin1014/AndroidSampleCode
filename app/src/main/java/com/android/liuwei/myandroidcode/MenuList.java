@@ -12,8 +12,7 @@ import com.android.liuwei.myandroidcode.feature.fragment.FragmentActivity;
 import com.android.liuwei.myandroidcode.feature.lebocast.LeboCastActivity;
 import com.android.liuwei.myandroidcode.feature.link.LinkActivity;
 import com.android.liuwei.myandroidcode.feature.orientation.OrientationActivity;
-import com.android.liuwei.myandroidcode.feature.process.LocalActivity;
-import com.android.liuwei.myandroidcode.feature.process.RemoteActivity;
+import com.android.liuwei.myandroidcode.feature.process.LocalCarActivity;
 import com.android.liuwei.myandroidcode.feature.service.ServiceActivity;
 import com.android.liuwei.myandroidcode.feature.theme.DayNightDemoActivity;
 
@@ -47,7 +46,7 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("AutoSize", AutoSizeTextViewActivity.class));
         MENU_LIST.add(new MenuInfo("DayNightTheme", DayNightDemoActivity.class));
         MENU_LIST.add(new MenuInfo("SimpleDemoActivity", SimpleDemoActivity.class));
-        MENU_LIST.add(new MenuInfo("RemoteActivity", LocalActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("RemoteActivity", LocalCarActivity.class, extra));
     }
 
     static List<MenuInfo> getMenus()
