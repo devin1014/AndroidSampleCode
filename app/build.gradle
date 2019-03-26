@@ -37,6 +37,9 @@ android {
             //assets.srcDirs = ['src/main/assets']
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {

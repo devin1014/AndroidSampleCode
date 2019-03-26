@@ -3,21 +3,33 @@ package com.android.liuwei.myandroidcode.feature.process;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car implements Parcelable
 {
+    public static List<Car> newCars()
+    {
+        List<Car> list = new ArrayList<>(3);
+        list.add(newBMW());
+        list.add(newBENZ());
+        list.add(newAudi());
+        return list;
+    }
+
     public static Car newBMW()
     {
-        return new Car("BMW", "320Li", 0f);
+        return new Car("BMW", "320Li", 30f);
     }
 
     public static Car newBENZ()
     {
-        return new Car("BENZ", "C200L", 0f);
+        return new Car("BENZ", "C200L", 33f);
     }
 
     public static Car newAudi()
     {
-        return new Car("AUDI", "A4L", 0f);
+        return new Car("AUDI", "A4L", 27f);
     }
 
     private String name;

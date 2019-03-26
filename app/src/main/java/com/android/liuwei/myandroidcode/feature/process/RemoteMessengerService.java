@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
 import com.android.liuwei.myandroidcode.base.BaseService;
 import com.android.liuwei.myandroidcode.base.LogUtil;
 
-public class RemoteCarService extends BaseService
+public class RemoteMessengerService extends BaseService
 {
     @Nullable
     @Override
@@ -34,7 +34,7 @@ public class RemoteCarService extends BaseService
 
             data.setClassLoader(Car.class.getClassLoader());
 
-            float discount = data.getFloat("msg") / 10f + 0.2f;
+            float discount = data.getFloat("msg") / 10f * 1.1f;
 
             Car car = data.getParcelable("car");
 
@@ -53,7 +53,7 @@ public class RemoteCarService extends BaseService
             replyBundle.putFloat("msg", discount);
 
             assert car != null;
-            replyBundle.putParcelable("car", resetCar(car, discount));
+            replyBundle.putParcelable("car", car);
 
             replyMsg.setData(replyBundle);
 
@@ -65,28 +65,6 @@ public class RemoteCarService extends BaseService
             {
                 e.printStackTrace();
             }
-        }
-
-        private Car resetCar(Car car, float discount)
-        {
-            if (car.getName().equalsIgnoreCase("BMW"))
-            {
-                car.setPrice(30f * discount);
-            }
-            else if (car.getName().equalsIgnoreCase("BENZ"))
-            {
-                car.setPrice(35f * discount);
-            }
-            else if (car.getName().equalsIgnoreCase("AUDI"))
-            {
-                car.setPrice(25f * discount);
-            }
-            else
-            {
-                car.setPrice(-1f);
-            }
-
-            return car;
         }
     }
 }

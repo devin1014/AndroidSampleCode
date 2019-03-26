@@ -9,10 +9,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AlertDialog.Builder;
 
 import com.android.liuwei.myandroidcode.R;
+import com.android.liuwei.myandroidcode.base.BaseActivity;
 import com.android.liuwei.myandroidcode.feature.deviceinfo.DeviceInfoActivity;
 
 import butterknife.OnClick;
-import com.android.liuwei.myandroidcode.base.BaseActivity;
 
 /**
  * User: liuwei
@@ -54,5 +54,18 @@ public class MyDialogActivity extends BaseActivity
     public void openActivity()
     {
         startActivity(new Intent(this, DeviceInfoActivity.class));
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        showDialog();
     }
 }

@@ -85,8 +85,8 @@
         <activity
             android:name=".feature.process.RemoteActivity"
             android:process=":remote_activity" />
-        <activity android:name=".feature.process.LocalCarActivity" />
-        <activity android:name=".feature.process.LocalBookActivity" />
+        <activity android:name=".feature.process.LocalMessengerActivity" />
+        <activity android:name=".feature.process.LocalAIDLActivity" />
 
         <!--################################-->
         <!--service-->
@@ -94,11 +94,11 @@
         <service android:name=".feature.service.MyBackgroundService" />
         <service android:name=".feature.service.MyBackgroundIntentService" />
         <service
-            android:name=".feature.process.RemoteCarService"
-            android:process=":remote_service" />
+            android:name=".feature.process.RemoteMessengerService"
+            android:process=":remote_service_messenger" />
         <service
-            android:name=".feature.process.RemoteBookService"
-            android:process=":remote_book" />
+            android:name=".feature.process.RemoteAIDLService"
+            android:process=":remote_service_aidl" />
 
     </application>
 

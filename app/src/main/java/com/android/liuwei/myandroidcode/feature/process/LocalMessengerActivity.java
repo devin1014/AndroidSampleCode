@@ -26,7 +26,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 
-public class LocalCarActivity extends BaseActivity
+public class LocalMessengerActivity extends BaseActivity
 {
     @BindView(R.id.input_edit)
     EditText mInputEdit;
@@ -48,7 +48,7 @@ public class LocalCarActivity extends BaseActivity
     {
         super.onCreate(savedInstanceState);
 
-        bindService(new Intent(this, RemoteCarService.class), mServiceConnection, Service.BIND_AUTO_CREATE);
+        bindService(new Intent(this, RemoteMessengerService.class), mServiceConnection, Service.BIND_AUTO_CREATE);
 
         findViewById(R.id.post).setOnClickListener(mOnClickListener);
     }
@@ -83,9 +83,9 @@ public class LocalCarActivity extends BaseActivity
 
     private static class ReceiveHandler extends Handler
     {
-        LocalCarActivity mLocalActivity;
+        LocalMessengerActivity mLocalActivity;
 
-        ReceiveHandler(LocalCarActivity activity)
+        ReceiveHandler(LocalMessengerActivity activity)
         {
             mLocalActivity = activity;
         }
