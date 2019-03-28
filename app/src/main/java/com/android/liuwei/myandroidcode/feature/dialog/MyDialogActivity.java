@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AlertDialog.Builder;
@@ -62,10 +63,18 @@ public class MyDialogActivity extends BaseActivity
         super.onStop();
     }
 
+
     @Override
     protected void onDestroy()
     {
         super.onDestroy();
-        showDialog();
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                showDialog();
+            }
+        }, 1500);
     }
 }

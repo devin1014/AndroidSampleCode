@@ -87,6 +87,7 @@
             android:process=":remote_activity" />
         <activity android:name=".feature.process.LocalMessengerActivity" />
         <activity android:name=".feature.process.LocalAIDLActivity" />
+        <activity android:name=".feature.databinding.DataBindingDemoActivity" />
 
         <!--################################-->
         <!--service-->

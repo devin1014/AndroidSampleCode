@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.android.liuwei.myandroidcode.feature.autosizetextview.AutoSizeTextViewActivity;
 import com.android.liuwei.myandroidcode.feature.cookie.CookieActivity;
+import com.android.liuwei.myandroidcode.feature.databinding.DataBindingDemoActivity;
 import com.android.liuwei.myandroidcode.feature.demo.SimpleDemoActivity;
 import com.android.liuwei.myandroidcode.feature.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.feature.dialog.MyDialogActivity;
@@ -47,6 +48,7 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("DayNightTheme", DayNightDemoActivity.class));
         MENU_LIST.add(new MenuInfo("SimpleDemoActivity", SimpleDemoActivity.class));
         MENU_LIST.add(new MenuInfo("IPC", LocalAIDLActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("DataBinding", DataBindingDemoActivity.class, extra));
     }
 
     static List<MenuInfo> getMenus()

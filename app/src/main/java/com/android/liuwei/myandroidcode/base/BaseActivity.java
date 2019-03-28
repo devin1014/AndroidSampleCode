@@ -24,9 +24,17 @@ public abstract class BaseActivity extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
 
-        setContentView(getActivityLayout());
+        if (!bindingView())
+        {
+            setContentView(getActivityLayout());
+        }
 
         mButterKnife = ButterKnife.bind(this);
+    }
+
+    protected boolean bindingView()
+    {
+        return false;
     }
 
     protected abstract int getActivityLayout();
@@ -92,7 +100,10 @@ public abstract class BaseActivity extends AppCompatActivity
     {
         LogUtil.log(this, "onDestroy");
 
-        mButterKnife.unbind();
+        if (mButterKnife != null)
+        {
+            mButterKnife.unbind();
+        }
 
         super.onDestroy();
     }
