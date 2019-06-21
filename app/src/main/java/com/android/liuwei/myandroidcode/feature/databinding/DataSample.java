@@ -11,10 +11,13 @@ public class DataSample extends BaseObservable
 
     private ObservableBoolean mLoadingFiled = new ObservableBoolean();
 
+    private ObservableBoolean mSwitchOn = new ObservableBoolean(true);
+
     public DataSample()
     {
         mTextFiled.addOnPropertyChangedCallback(mOnPropertyChangedCallback);
         mLoadingFiled.addOnPropertyChangedCallback(mOnPropertyChangedCallback);
+        mSwitchOn.addOnPropertyChangedCallback(mOnPropertyChangedCallback);
     }
 
     public String getTextValue()
@@ -35,6 +38,16 @@ public class DataSample extends BaseObservable
     public void setShowLoading(boolean show)
     {
         mLoadingFiled.set(show);
+    }
+
+    public boolean isSwitchOn()
+    {
+        return mSwitchOn.get();
+    }
+
+    public void setSwitch(boolean on)
+    {
+        mSwitchOn.set(on);
     }
 
     @SuppressWarnings("FieldCanBeLocal")

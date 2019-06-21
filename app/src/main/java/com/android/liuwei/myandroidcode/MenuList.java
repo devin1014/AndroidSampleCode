@@ -11,9 +11,11 @@ import com.android.liuwei.myandroidcode.feature.dialog.MyDialogActivity;
 import com.android.liuwei.myandroidcode.feature.eventbus.EventBusDemoActivity;
 import com.android.liuwei.myandroidcode.feature.fragment.FragmentActivity;
 import com.android.liuwei.myandroidcode.feature.lebocast.LeboCastActivity;
+import com.android.liuwei.myandroidcode.feature.lifecycle.LifecycleDemoActivity;
 import com.android.liuwei.myandroidcode.feature.link.LinkActivity;
 import com.android.liuwei.myandroidcode.feature.orientation.OrientationActivity;
 import com.android.liuwei.myandroidcode.feature.process.LocalAIDLActivity;
+import com.android.liuwei.myandroidcode.feature.scheduler.SchedulerActivity;
 import com.android.liuwei.myandroidcode.feature.service.ServiceActivity;
 import com.android.liuwei.myandroidcode.feature.theme.DayNightDemoActivity;
 
@@ -49,6 +51,8 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("SimpleDemoActivity", SimpleDemoActivity.class));
         MENU_LIST.add(new MenuInfo("IPC", LocalAIDLActivity.class, extra));
         MENU_LIST.add(new MenuInfo("DataBinding", DataBindingDemoActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("Lifecycle", LifecycleDemoActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("Scheduler", SchedulerActivity.class, extra));
     }
 
     static List<MenuInfo> getMenus()

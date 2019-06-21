@@ -88,6 +88,8 @@
         <activity android:name=".feature.process.LocalMessengerActivity" />
         <activity android:name=".feature.process.LocalAIDLActivity" />
         <activity android:name=".feature.databinding.DataBindingDemoActivity" />
+        <activity android:name=".feature.lifecycle.LifecycleDemoActivity" />
+        <activity android:name=".feature.scheduler.SchedulerActivity" />
 
         <!--################################-->
         <!--service-->
