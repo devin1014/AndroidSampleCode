@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.android.liuwei.myandroidcode.feature.autosizetextview.AutoSizeTextViewActivity;
 import com.android.liuwei.myandroidcode.feature.cookie.CookieActivity;
+import com.android.liuwei.myandroidcode.feature.coordinatorlayout.CoordinatorLayoutActivityDemo;
 import com.android.liuwei.myandroidcode.feature.databinding.DataBindingDemoActivity;
 import com.android.liuwei.myandroidcode.feature.demo.SimpleDemoActivity;
 import com.android.liuwei.myandroidcode.feature.deviceinfo.DeviceInfoActivity;
@@ -53,6 +54,7 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("DataBinding", DataBindingDemoActivity.class, extra));
         MENU_LIST.add(new MenuInfo("Lifecycle", LifecycleDemoActivity.class, extra));
         MENU_LIST.add(new MenuInfo("Scheduler", SchedulerActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("CoordinatorLayout", CoordinatorLayoutActivityDemo.class, extra));
     }
 
     static List<MenuInfo> getMenus()

@@ -7,27 +7,41 @@
     android:orientation="vertical"
     tools:ignore="HardcodedText,SpUsage">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FragmentA"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_add_fragment"
+            android:id="@+id/btn_add_fragment_a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add"
             android:textSize="12dp" />
 
         <Button
-            android:id="@+id/btn_remove_fragment"
+            android:id="@+id/btn_remove_fragment_a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Remove"
             android:textSize="12dp" />
 
         <Button
-            android:id="@+id/btn_hide_fragment"
+            android:id="@+id/btn_show_fragment_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_hide_fragment_a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hide"
@@ -35,17 +49,57 @@
 
     </LinearLayout>
 
-    <com.android.liuwei.myandroidcode.feature.fragment.MyFrameLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FragmentB"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <fragment
-            android:name="com.android.liuwei.myandroidcode.feature.fragment.TestFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:tag="fragment_test" />
+        <Button
+            android:id="@+id/btn_add_fragment_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textSize="12dp" />
 
-    </com.android.liuwei.myandroidcode.feature.fragment.MyFrameLayout>
+        <Button
+            android:id="@+id/btn_remove_fragment_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_show_fragment_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_hide_fragment_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hide"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <!--<com.android.liuwei.myandroidcode.feature.fragment.MyFrameLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="160dp">-->
+    <!--<fragment-->
+    <!--android:name="com.android.liuwei.myandroidcode.feature.fragment.TestFragment"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:tag="fragment_test" />-->
+    <!--</com.android.liuwei.myandroidcode.feature.fragment.MyFrameLayout>-->
 
     <FrameLayout
         android:id="@+id/container_fragment"

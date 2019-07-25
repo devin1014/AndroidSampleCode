@@ -76,7 +76,7 @@
         <activity android:name=".feature.service.ServiceActivity" />
 
         <activity android:name=".feature.service.ServiceActivity2" />
-        <activity android:name=".feature.fragment.FragmentActivity" />
+        <activity android:name=".feature.fragment.FragmentActivity"/>
         <activity android:name=".feature.eventbus.EventBusDemoActivity" />
         <activity android:name=".feature.eventbus.EventBusDetailActivity" />
         <activity android:name=".feature.autosizetextview.AutoSizeTextViewActivity" />
@@ -90,6 +90,7 @@
         <activity android:name=".feature.databinding.DataBindingDemoActivity" />
         <activity android:name=".feature.lifecycle.LifecycleDemoActivity" />
         <activity android:name=".feature.scheduler.SchedulerActivity" />
+        <activity android:name=".feature.coordinatorlayout.CoordinatorLayoutActivityDemo" />
 
         <!--################################-->
         <!--service-->
