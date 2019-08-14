@@ -3,6 +3,7 @@ package com.android.liuwei.myandroidcode;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -40,14 +41,13 @@ public class MainFragment extends BaseFragment
 
     private void initComponent()
     {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3, LinearLayoutManager.VERTICAL, false));
 
         mRecyclerView.setAdapter(new ListAdapter(getActivity(), MenuList.getMenus(), mCallback, R.layout.comp_nav_list));
     }
 
     private ListAdapter.Callback mCallback = new Callback()
     {
-        @SuppressWarnings("ConstantConditions")
         @Override
         public void onItemClick(MenuInfo menuInfo)
         {

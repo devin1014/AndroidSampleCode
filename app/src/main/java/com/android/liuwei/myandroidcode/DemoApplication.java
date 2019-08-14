@@ -7,7 +7,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.android.liuwei.myandroidcode.base.LogUtil;
-import com.android.liuwei.myandroidcode.feature.cookie.OkHttpClientManager;
+import com.android.liuwei.myandroidcode.feature.http.cookie.OkHttpClientManager;
 import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;

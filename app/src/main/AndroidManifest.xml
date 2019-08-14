@@ -31,11 +31,11 @@
         </activity>
 
         <activity
-            android:name=".feature.orientation.OrientationActivity"
+            android:name=".feature.ui.orientation.OrientationActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensorLandscape" />
 
-        <activity android:name=".feature.link.LinkActivity">
+        <activity android:name=".feature.ui.link.LinkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -47,15 +47,15 @@
         </activity>
 
         <activity
-            android:name=".feature.cookie.CookieActivity"
+            android:name=".feature.http.cookie.CookieActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".feature.deviceinfo.DeviceInfoActivity"
+            android:name=".feature.ui.deviceinfo.DeviceInfoActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".feature.link.TestIntentActivity"
+            android:name=".feature.ui.link.TestIntentActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor">
             <!--<intent-filter>-->
@@ -65,43 +65,49 @@
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name=".feature.dialog.MyDialogActivity"
+            android:name=".feature.ui.dialog.MyDialogActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".feature.lebocast.LeboCastActivity"
+            android:name=".feature.http.lebocast.LeboCastActivity"
             android:configChanges="orientation|keyboard|screenSize"
             android:screenOrientation="sensor" />
 
-        <activity android:name=".feature.service.ServiceActivity" />
+        <activity android:name=".feature.ui.service.ServiceActivity" />
 
-        <activity android:name=".feature.service.ServiceActivity2" />
-        <activity android:name=".feature.fragment.FragmentActivity"/>
-        <activity android:name=".feature.eventbus.EventBusDemoActivity" />
-        <activity android:name=".feature.eventbus.EventBusDetailActivity" />
-        <activity android:name=".feature.autosizetextview.AutoSizeTextViewActivity" />
-        <activity android:name=".feature.theme.DayNightDemoActivity" />
-        <activity android:name=".feature.demo.SimpleDemoActivity" />
+        <activity android:name=".feature.ui.service.ServiceActivity2" />
+        <activity android:name=".feature.ui.fragment.FragmentActivity" />
+        <activity android:name=".feature.architecture.eventbus.EventBusDemoActivity" />
+        <activity android:name=".feature.architecture.eventbus.EventBusDetailActivity" />
+        <activity android:name=".feature.widget.autosizetextview.AutoSizeTextViewActivity" />
+        <activity android:name=".feature.ui.theme.DayNightDemoActivity" />
+        <activity android:name=".feature.ui.demo.SimpleDemoActivity" />
         <activity
-            android:name=".feature.process.RemoteActivity"
+            android:name=".feature.thread.process.RemoteActivity"
             android:process=":remote_activity" />
-        <activity android:name=".feature.process.LocalMessengerActivity" />
-        <activity android:name=".feature.process.LocalAIDLActivity" />
-        <activity android:name=".feature.databinding.DataBindingDemoActivity" />
-        <activity android:name=".feature.lifecycle.LifecycleDemoActivity" />
-        <activity android:name=".feature.scheduler.SchedulerActivity" />
-        <activity android:name=".feature.coordinatorlayout.CoordinatorLayoutActivityDemo" />
+        <activity android:name=".feature.thread.process.LocalMessengerActivity" />
+        <activity android:name=".feature.thread.process.LocalAIDLActivity" />
+        <activity android:name=".feature.ui.databinding.DataBindingDemoActivity" />
+        <activity android:name=".feature.architecture.lifecycle.LifecycleDemoActivity" />
+        <activity android:name=".feature.thread.scheduler.SchedulerActivity" />
+        <activity android:name=".feature.widget.coordinatorlayout.CoordinatorLayoutActivityDemo" />
+        <activity
+            android:name=".feature.ui.onepixactivity.OnePixActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:finishOnTaskLaunch="false"
+            android:theme="@style/LiveActivityStyle" />
 
         <!--################################-->
         <!--service-->
         <!--################################-->
-        <service android:name=".feature.service.MyBackgroundService" />
-        <service android:name=".feature.service.MyBackgroundIntentService" />
+        <service android:name=".feature.ui.service.MyBackgroundService" />
+        <service android:name=".feature.ui.service.MyBackgroundIntentService" />
         <service
-            android:name=".feature.process.RemoteMessengerService"
+            android:name=".feature.thread.process.RemoteMessengerService"
             android:process=":remote_service_messenger" />
         <service
-            android:name=".feature.process.RemoteAIDLService"
+            android:name=".feature.thread.process.RemoteAIDLService"
             android:process=":remote_service_aidl" />
 
     </application>

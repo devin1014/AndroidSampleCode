@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.coordinatorlayout.CoordinatorLayoutActivityDemo">
+    tools:context=".feature.widget.coordinatorlayout.CoordinatorLayoutActivityDemo">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/mAppBarLayout"
@@ -52,6 +52,6 @@
         android:layout_height="64dp"
         android:layout_gravity="bottom"
         android:background="#000000"
-        app:layout_behavior="com.android.liuwei.myandroidcode.feature.coordinatorlayout.BottomNavBehavior" />
+        app:layout_behavior=".feature.widget.coordinatorlayout.BottomNavBehavior" />
 
 </android.support.design.widget.CoordinatorLayout>
