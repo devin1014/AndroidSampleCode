@@ -2,25 +2,28 @@ package com.android.liuwei.myandroidcode;
 
 import android.os.Bundle;
 
-import com.android.liuwei.myandroidcode.feature.widget.autosizetextview.AutoSizeTextViewActivity;
+import com.android.liuwei.myandroidcode.feature.architecture.eventbus.EventBusDemoActivity;
+import com.android.liuwei.myandroidcode.feature.architecture.lifecycle.LifecycleDemoActivity;
 import com.android.liuwei.myandroidcode.feature.http.cookie.CookieActivity;
-import com.android.liuwei.myandroidcode.feature.widget.coordinatorlayout.CoordinatorLayoutActivityDemo;
+import com.android.liuwei.myandroidcode.feature.http.lebocast.LeboCastActivity;
+import com.android.liuwei.myandroidcode.feature.thread.handlerthread.WorkThreadActivity;
+import com.android.liuwei.myandroidcode.feature.thread.process.LocalAIDLActivity;
+import com.android.liuwei.myandroidcode.feature.thread.scheduler.SchedulerActivity;
 import com.android.liuwei.myandroidcode.feature.ui.databinding.DataBindingDemoActivity;
 import com.android.liuwei.myandroidcode.feature.ui.demo.SimpleDemoActivity;
 import com.android.liuwei.myandroidcode.feature.ui.deviceinfo.DeviceInfoActivity;
 import com.android.liuwei.myandroidcode.feature.ui.dialog.MyDialogActivity;
-import com.android.liuwei.myandroidcode.feature.architecture.eventbus.EventBusDemoActivity;
 import com.android.liuwei.myandroidcode.feature.ui.fragment.FragmentActivity;
-import com.android.liuwei.myandroidcode.feature.http.lebocast.LeboCastActivity;
-import com.android.liuwei.myandroidcode.feature.architecture.lifecycle.LifecycleDemoActivity;
 import com.android.liuwei.myandroidcode.feature.ui.link.LinkActivity;
 import com.android.liuwei.myandroidcode.feature.ui.orientation.OrientationActivity;
-import com.android.liuwei.myandroidcode.feature.thread.process.LocalAIDLActivity;
-import com.android.liuwei.myandroidcode.feature.thread.scheduler.SchedulerActivity;
 import com.android.liuwei.myandroidcode.feature.ui.service.ServiceActivity;
 import com.android.liuwei.myandroidcode.feature.ui.theme.DayNightDemoActivity;
+import com.android.liuwei.myandroidcode.feature.widget.autosizetextview.AutoSizeTextViewActivity;
+import com.android.liuwei.myandroidcode.feature.widget.coordinatorlayout.CoordinatorLayoutActivityDemo;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -55,6 +58,16 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("Lifecycle", LifecycleDemoActivity.class, extra));
         MENU_LIST.add(new MenuInfo("Scheduler", SchedulerActivity.class, extra));
         MENU_LIST.add(new MenuInfo("CoordinatorLayout", CoordinatorLayoutActivityDemo.class, extra));
+        MENU_LIST.add(new MenuInfo("WorkThread", WorkThreadActivity.class, extra));
+
+        Collections.sort(MENU_LIST, new Comparator<MenuInfo>()
+        {
+            @Override
+            public int compare(MenuInfo o1, MenuInfo o2)
+            {
+                return o1.name.compareTo(o2.name);
+            }
+        });
     }
 
     static List<MenuInfo> getMenus()

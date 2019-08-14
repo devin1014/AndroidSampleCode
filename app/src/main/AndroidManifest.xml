@@ -97,6 +97,7 @@
             android:exported="false"
             android:finishOnTaskLaunch="false"
             android:theme="@style/LiveActivityStyle" />
+        <activity android:name=".feature.thread.handlerthread.WorkThreadActivity" />
 
         <!--################################-->
         <!--service-->

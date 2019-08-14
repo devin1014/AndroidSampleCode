@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.android.liuwei.myandroidcode.feature.databinding.DataSample" />
+            type="com.android.liuwei.myandroidcode.feature.ui.databinding.DataSample" />
 
     </data>
 

@@ -1,5 +1,6 @@
 package com.android.liuwei.myandroidcode.base;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 /**
@@ -72,6 +73,15 @@ public class LogUtil
             return "NULL";
         }
 
-        return String.format("%s[%s]", object.getClass().getSimpleName(), Integer.toHexString(object.hashCode()));
+        return String.format("%s[%s]", getClassName(object.getClass()), Integer.toHexString(object.hashCode()));
+    }
+
+    private static String getClassName(Class clazz)
+    {
+        if (TextUtils.isEmpty(clazz.getSimpleName()))
+        {
+            return clazz.getName().substring(clazz.getName().lastIndexOf(".") + 1);
+        }
+        return clazz.getSimpleName();
     }
 }
