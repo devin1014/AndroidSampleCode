@@ -98,6 +98,7 @@
             android:finishOnTaskLaunch="false"
             android:theme="@style/LiveActivityStyle" />
         <activity android:name=".feature.thread.handlerthread.WorkThreadActivity" />
+        <activity android:name=".feature.ui.performance.PerformanceActivity" />
 
         <!--################################-->
         <!--service-->

@@ -16,6 +16,7 @@ import com.android.liuwei.myandroidcode.feature.ui.dialog.MyDialogActivity;
 import com.android.liuwei.myandroidcode.feature.ui.fragment.FragmentActivity;
 import com.android.liuwei.myandroidcode.feature.ui.link.LinkActivity;
 import com.android.liuwei.myandroidcode.feature.ui.orientation.OrientationActivity;
+import com.android.liuwei.myandroidcode.feature.ui.performance.PerformanceActivity;
 import com.android.liuwei.myandroidcode.feature.ui.service.ServiceActivity;
 import com.android.liuwei.myandroidcode.feature.ui.theme.DayNightDemoActivity;
 import com.android.liuwei.myandroidcode.feature.widget.autosizetextview.AutoSizeTextViewActivity;
@@ -59,6 +60,7 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("Scheduler", SchedulerActivity.class, extra));
         MENU_LIST.add(new MenuInfo("CoordinatorLayout", CoordinatorLayoutActivityDemo.class, extra));
         MENU_LIST.add(new MenuInfo("WorkThread", WorkThreadActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("Performance", PerformanceActivity.class, extra));
 
         Collections.sort(MENU_LIST, new Comparator<MenuInfo>()
         {
