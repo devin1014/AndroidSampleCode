@@ -8,7 +8,7 @@ import android.arch.lifecycle.OnLifecycleEvent;
 
 import com.android.liuwei.myandroidcode.base.LogUtil;
 
-public interface IPresenter extends LifecycleObserver
+public interface MyLifecycleObserver extends LifecycleObserver
 {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     void onCreate(LifecycleOwner owner);
@@ -31,7 +31,7 @@ public interface IPresenter extends LifecycleObserver
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     void onLifecycleChanged(LifecycleOwner owner, Lifecycle.Event event);
 
-    class MyPresenter implements IPresenter
+    class DefaultObserver implements MyLifecycleObserver
     {
         @Override
         public void onCreate(LifecycleOwner owner)
