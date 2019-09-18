@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.android.liuwei.myandroidcode"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.liuwei.myandroidcode">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -83,10 +83,10 @@
         <activity android:name=".feature.ui.theme.DayNightDemoActivity" />
         <activity android:name=".feature.ui.demo.SimpleDemoActivity" />
         <activity
-            android:name=".feature.thread.process.RemoteActivity"
-            android:process=":remote_activity" />
-        <activity android:name=".feature.thread.process.LocalMessengerActivity" />
-        <activity android:name=".feature.thread.process.LocalAIDLActivity" />
+            android:name=".feature.process.car.RemoteCarActivity"
+            android:process=":remote_car_activity" />
+        <activity android:name=".feature.process.car.messager.MessengerActivity" />
+        <activity android:name=".feature.process.car.CarActivity" />
         <activity android:name=".feature.ui.databinding.DataBindingDemoActivity" />
         <activity android:name=".feature.architecture.lifecycle.LifecycleDemoActivity" />
         <activity android:name=".feature.thread.scheduler.SchedulerActivity" />
@@ -106,10 +106,13 @@
         <service android:name=".feature.ui.service.MyBackgroundService" />
         <service android:name=".feature.ui.service.MyBackgroundIntentService" />
         <service
-            android:name=".feature.thread.process.RemoteMessengerService"
+            android:name=".feature.process.car.service.CCCCarDealerService"
             android:process=":remote_service_messenger" />
         <service
-            android:name=".feature.thread.process.RemoteAIDLService"
+            android:name=".feature.process.car.service.AAACarDealerService"
+            android:process=":remote_service_aidl" />
+        <service
+            android:name=".feature.process.car.service.BBBCarDealerService"
             android:process=":remote_service_aidl" />
 
     </application>

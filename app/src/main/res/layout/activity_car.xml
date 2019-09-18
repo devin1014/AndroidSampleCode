@@ -12,7 +12,7 @@
         android:id="@+id/input_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="折扣(1-10)"
+        android:hint="折扣系数(0-100), 默认：100"
         android:inputType="number" />
 
     <RadioGroup
@@ -48,12 +48,47 @@
 
     </RadioGroup>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/get_aaa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="get AAA"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/get_bbb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="get BBB"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/get_ccc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="get CCC"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
     <Button
-        android:id="@+id/post"
+        android:id="@+id/get_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Post"
+        android:text="get from RemoteActivity"
+        android:textAllCaps="false"
         android:textSize="16dp" />
 
     <TextView

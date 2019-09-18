@@ -6,8 +6,8 @@ import com.android.liuwei.myandroidcode.feature.architecture.eventbus.EventBusDe
 import com.android.liuwei.myandroidcode.feature.architecture.lifecycle.LifecycleDemoActivity;
 import com.android.liuwei.myandroidcode.feature.http.cookie.CookieActivity;
 import com.android.liuwei.myandroidcode.feature.http.lebocast.LeboCastActivity;
+import com.android.liuwei.myandroidcode.feature.process.car.CarActivity;
 import com.android.liuwei.myandroidcode.feature.thread.handlerthread.WorkThreadActivity;
-import com.android.liuwei.myandroidcode.feature.thread.process.LocalAIDLActivity;
 import com.android.liuwei.myandroidcode.feature.thread.scheduler.SchedulerActivity;
 import com.android.liuwei.myandroidcode.feature.ui.databinding.DataBindingDemoActivity;
 import com.android.liuwei.myandroidcode.feature.ui.demo.SimpleDemoActivity;
@@ -54,7 +54,7 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("AutoSize", AutoSizeTextViewActivity.class));
         MENU_LIST.add(new MenuInfo("DayNightTheme", DayNightDemoActivity.class));
         MENU_LIST.add(new MenuInfo("SimpleDemoActivity", SimpleDemoActivity.class));
-        MENU_LIST.add(new MenuInfo("IPC", LocalAIDLActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("IPC", CarActivity.class, extra));
         MENU_LIST.add(new MenuInfo("DataBinding", DataBindingDemoActivity.class, extra));
         MENU_LIST.add(new MenuInfo("Lifecycle", LifecycleDemoActivity.class, extra));
         MENU_LIST.add(new MenuInfo("Scheduler", SchedulerActivity.class, extra));

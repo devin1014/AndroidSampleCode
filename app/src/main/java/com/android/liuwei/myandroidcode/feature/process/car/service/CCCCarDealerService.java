@@ -1,4 +1,4 @@
-package com.android.liuwei.myandroidcode.feature.thread.process;
+package com.android.liuwei.myandroidcode.feature.process.car.service;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,9 @@ import android.support.annotation.Nullable;
 
 import com.android.liuwei.myandroidcode.base.BaseService;
 import com.android.liuwei.myandroidcode.base.LogUtil;
+import com.android.liuwei.myandroidcode.feature.process.car.Car;
 
-public class RemoteMessengerService extends BaseService
+public class CCCCarDealerService extends BaseService
 {
     @Nullable
     @Override

@@ -1,5 +1,5 @@
 // Car.aidl
-package com.android.liuwei.myandroidcode.feature.thread.process;
+package com.android.liuwei.myandroidcode.feature.process.car;
 
 // Declare any non-default types here with import statements
 
