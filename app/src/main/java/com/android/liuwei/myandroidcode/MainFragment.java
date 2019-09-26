@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.liuwei.myandroidcode.ListAdapter.Callback;
+import com.android.liuwei.myandroidcode.MenuListAdapter.Callback;
 import com.android.liuwei.myandroidcode.MenuList.MenuInfo;
 import com.android.liuwei.myandroidcode.base.BaseFragment;
 import com.android.liuwei.myandroidcode.base.Utils;
@@ -43,10 +43,10 @@ public class MainFragment extends BaseFragment
     {
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3, LinearLayoutManager.VERTICAL, false));
 
-        mRecyclerView.setAdapter(new ListAdapter(getActivity(), MenuList.getMenus(), mCallback, R.layout.comp_nav_list));
+        mRecyclerView.setAdapter(new MenuListAdapter(getActivity(), MenuList.getMenus(), mCallback, R.layout.comp_nav_list));
     }
 
-    private ListAdapter.Callback mCallback = new Callback()
+    private MenuListAdapter.Callback mCallback = new Callback()
     {
         @Override
         public void onItemClick(MenuInfo menuInfo)

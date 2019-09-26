@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.liuwei.myandroidcode.MenuList.MenuInfo;
-import com.android.liuwei.myandroidcode.ListAdapter.Holder;
+import com.android.liuwei.myandroidcode.MenuListAdapter.Holder;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  * Date: 2018-04-17
  * Time: 10:14
  */
-public class ListAdapter extends Adapter<Holder>
+public class MenuListAdapter extends Adapter<Holder>
 {
     public interface Callback
     {
@@ -32,7 +32,7 @@ public class ListAdapter extends Adapter<Holder>
     private Callback mCallback;
     private int mItemLayoutId;
 
-    public ListAdapter(Context context, List<MenuInfo> list, Callback callback, int layoutId)
+    public MenuListAdapter(Context context, List<MenuInfo> list, Callback callback, int layoutId)
     {
         mLayoutInflater = LayoutInflater.from(context);
         mData = list;
@@ -64,7 +64,7 @@ public class ListAdapter extends Adapter<Holder>
         return mData.get(position);
     }
 
-    public class Holder extends ViewHolder implements OnClickListener
+    class Holder extends ViewHolder implements OnClickListener
     {
         Holder(View itemView)
         {

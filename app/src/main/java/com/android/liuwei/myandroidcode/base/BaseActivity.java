@@ -2,6 +2,7 @@ package com.android.liuwei.myandroidcode.base;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -77,6 +78,14 @@ public abstract class BaseActivity extends AppCompatActivity
         LogUtil.log(this, "onSaveInstanceState:" + (outState != null ? outState : ""));
 
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState)
+    {
+        LogUtil.log(this, "onSaveInstanceState:" + (outState != null ? outState : "") + "," + (outPersistentState != null ? outPersistentState : ""));
+
+        super.onSaveInstanceState(outState, outPersistentState);
     }
 
     @Override

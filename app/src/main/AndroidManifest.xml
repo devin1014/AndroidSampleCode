@@ -30,10 +30,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".feature.ui.orientation.OrientationActivity"
-            android:configChanges="orientation|keyboard|screenSize"
-            android:screenOrientation="sensorLandscape" />
+        <activity android:name=".feature.ui.orientation.OrientationActivity" />
 
         <activity android:name=".feature.ui.link.LinkActivity">
             <intent-filter>
@@ -85,7 +82,6 @@
         <activity
             android:name=".feature.process.car.RemoteCarActivity"
             android:process=":remote_car_activity" />
-        <activity android:name=".feature.process.car.messager.MessengerActivity" />
         <activity android:name=".feature.process.car.CarActivity" />
         <activity android:name=".feature.ui.databinding.DataBindingDemoActivity" />
         <activity android:name=".feature.architecture.lifecycle.LifecycleDemoActivity" />
@@ -99,6 +95,9 @@
             android:theme="@style/LiveActivityStyle" />
         <activity android:name=".feature.thread.handlerthread.WorkThreadActivity" />
         <activity android:name=".feature.ui.performance.PerformanceActivity" />
+        <activity android:name=".feature.ndk.NdkDemoActivity" />
+        <activity android:name=".feature.ui.scrollview.ScrollViewHolder" />
+        <activity android:name=".feature.ui.scrollview.ScrollViewRecyclerViewActivity" />
 
         <!--################################-->
         <!--service-->
