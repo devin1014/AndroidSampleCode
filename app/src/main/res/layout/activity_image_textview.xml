@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/image_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle"
+        android:drawableLeft="@drawable/shape_circle"
+        android:drawablePadding="16dp"
+        android:gravity="center"
+        android:paddingLeft="32dp"
+        android:paddingTop="8dp"
+        android:paddingRight="32dp"
+        android:paddingBottom="8dp"
+        android:text="000"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/image_text_view2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#f0f0f0"
+        android:drawableLeft="@drawable/shape_circle"
+        android:drawablePadding="6dp"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="textView(match_parent)"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <com.android.liuwei.myandroidcode.feature.widget.ImageTextView.ImageTextView
+        android:id="@+id/image_text_view3"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#f0f0f0"
+        android:drawableLeft="@drawable/shape_circle"
+        android:drawablePadding="6dp"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#f0f0f0"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -98,6 +98,7 @@
         <activity android:name=".feature.ndk.NdkDemoActivity" />
         <activity android:name=".feature.ui.scrollview.ScrollViewHolder" />
         <activity android:name=".feature.ui.scrollview.ScrollViewRecyclerViewActivity" />
+        <activity android:name=".feature.widget.ImageTextView.ImageTextViewActivity" />
 
         <!--################################-->
         <!--service-->

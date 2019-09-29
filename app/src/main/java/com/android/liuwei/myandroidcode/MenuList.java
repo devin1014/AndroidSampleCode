@@ -20,6 +20,7 @@ import com.android.liuwei.myandroidcode.feature.ui.performance.PerformanceActivi
 import com.android.liuwei.myandroidcode.feature.ui.scrollview.ScrollViewHolder;
 import com.android.liuwei.myandroidcode.feature.ui.service.ServiceActivity;
 import com.android.liuwei.myandroidcode.feature.ui.theme.DayNightDemoActivity;
+import com.android.liuwei.myandroidcode.feature.widget.ImageTextView.ImageTextViewActivity;
 import com.android.liuwei.myandroidcode.feature.widget.autosizetextview.AutoSizeTextViewActivity;
 import com.android.liuwei.myandroidcode.feature.widget.coordinatorlayout.CoordinatorLayoutActivityDemo;
 
@@ -63,6 +64,7 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("WorkThread", WorkThreadActivity.class, extra));
         MENU_LIST.add(new MenuInfo("Performance", PerformanceActivity.class, extra));
         MENU_LIST.add(new MenuInfo("ScrollView", ScrollViewHolder.class, extra));
+        MENU_LIST.add(new MenuInfo("ImageTextView", ImageTextViewActivity.class, extra));
 
         Collections.sort(MENU_LIST, new Comparator<MenuInfo>()
         {
