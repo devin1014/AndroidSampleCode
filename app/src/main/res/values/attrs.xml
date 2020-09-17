@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="appTextColorPrimary" format="reference|color" />
+    <!--    attrs-->
+    <declare-styleable name="SettingsPageStyle">
+        <attr name="settingsWindowBackground" format="reference|color" />
+        <attr name="settingsPrimaryTextColor" format="reference|color" />
+        <attr name="settingsMinorTextColor" format="reference|color" />
+        <attr name="settingsTinyTextColor" format="reference|color" />
+    </declare-styleable>
 
 </resources>

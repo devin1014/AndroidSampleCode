@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="DayNightDemoActivity" parent="Theme.AppCompat.DayNight">
+        <item name="settingsWindowBackground">#0f0f0f</item>
+        <item name="settingsPrimaryTextColor">#ffffff</item>
+        <item name="settingsMinorTextColor">#bbffffff</item>
+        <item name="settingsTinyTextColor">#88ffffff</item>
+    </style>
+
+</resources>

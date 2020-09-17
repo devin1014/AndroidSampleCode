@@ -23,11 +23,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="App DayNightMode:" />
+            android:text="Mode:" />
 
         <Button
             android:id="@+id/btn_mode_light"
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Light"
@@ -35,7 +34,6 @@
 
         <Button
             android:id="@+id/btn_mode_night"
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dark"
@@ -45,50 +43,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="?settingsWindowBackground"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/app_primary_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="App Theme:" />
+            android:layout_marginTop="6dp"
+            android:text="AppThemePrimaryText"
+            android:textColor="?settingsPrimaryTextColor"
+            android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/btn_theme_light"
-            style="?android:attr/buttonBarButtonStyle"
+        <TextView
+            android:id="@+id/app_minor_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Light"
-            android:textSize="12dp" />
+            android:layout_marginTop="6dp"
+            android:text="AppThemeMinorText"
+            android:textColor="?settingsMinorTextColor"
+            android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/btn_theme_night"
-            style="?android:attr/buttonBarButtonStyle"
+        <TextView
+            android:id="@+id/app_tiny_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dark"
-            android:textSize="12dp" />
+            android:layout_marginTop="6dp"
+            android:text="AppThemeTinyText"
+            android:textColor="?settingsTinyTextColor"
+            android:textSize="16dp" />
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="#aa888888"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="value:?attr/appTextColorPrimary"
-        android:textColor="?attr/appTextColorPrimary" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="#aa888888"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="value:@color/textColorPrimary"
-        android:textColor="@color/textColorPrimary" />
 
 </LinearLayout>

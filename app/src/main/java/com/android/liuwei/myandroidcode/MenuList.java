@@ -9,6 +9,7 @@ import com.android.liuwei.myandroidcode.feature.http.lebocast.LeboCastActivity;
 import com.android.liuwei.myandroidcode.feature.process.car.CarActivity;
 import com.android.liuwei.myandroidcode.feature.thread.handlerthread.WorkThreadActivity;
 import com.android.liuwei.myandroidcode.feature.thread.scheduler.SchedulerActivity;
+import com.android.liuwei.myandroidcode.feature.ui.data.IntentDataActivity;
 import com.android.liuwei.myandroidcode.feature.ui.databinding.DataBindingDemoActivity;
 import com.android.liuwei.myandroidcode.feature.ui.demo.SimpleDemoActivity;
 import com.android.liuwei.myandroidcode.feature.ui.deviceinfo.DeviceInfoActivity;
@@ -41,8 +42,9 @@ public class MenuList
     static
     {
         Bundle extra = new Bundle();
-        extra.putString("extra_data", "test data");
-        extra.putString("extra_data2", "222");
+        extra.putString("extra_data", "test message");
+        extra.putInt("extra_int", 222);
+        extra.putSerializable("extra_ser", "extra_ser");
 
         MENU_LIST.add(new MenuInfo("Orientation", OrientationActivity.class));
         MENU_LIST.add(new MenuInfo("Link", LinkActivity.class));
@@ -65,6 +67,7 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("Performance", PerformanceActivity.class, extra));
         MENU_LIST.add(new MenuInfo("ScrollView", ScrollViewHolder.class, extra));
         MENU_LIST.add(new MenuInfo("ImageTextView", ImageTextViewActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("Uri", IntentDataActivity.class, extra));
 
         Collections.sort(MENU_LIST, new Comparator<MenuInfo>()
         {

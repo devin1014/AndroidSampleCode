@@ -10,10 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.liuwei.myandroidcode.MenuListAdapter.Callback;
 import com.android.liuwei.myandroidcode.MenuList.MenuInfo;
+import com.android.liuwei.myandroidcode.MenuListAdapter.Callback;
 import com.android.liuwei.myandroidcode.base.BaseFragment;
 import com.android.liuwei.myandroidcode.base.Utils;
+import com.android.liuwei.myandroidcode.feature.ui.data.IntentDataActivity;
 
 import butterknife.BindView;
 
@@ -51,7 +52,9 @@ public class MainFragment extends BaseFragment
         @Override
         public void onItemClick(MenuInfo menuInfo)
         {
-            Utils.startActivity(getActivity(), menuInfo.clazz, menuInfo.extra);
+            boolean addNewTaskFlag = menuInfo.clazz.getSimpleName().equals(IntentDataActivity.class.getSimpleName());
+
+            Utils.startActivity(getActivity(), menuInfo.clazz, menuInfo.extra, addNewTaskFlag);
         }
     };
 }

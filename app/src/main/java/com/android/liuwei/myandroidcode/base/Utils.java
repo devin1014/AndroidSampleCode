@@ -3,6 +3,7 @@ package com.android.liuwei.myandroidcode.base;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import java.io.File;
@@ -17,10 +18,15 @@ public class Utils
 {
     public static void startActivity(Context context, Class<?> activityClass)
     {
-        startActivity(context, activityClass, null);
+        startActivity(context, activityClass, null, false);
     }
 
     public static void startActivity(Context context, Class<?> activityClass, Bundle bundle)
+    {
+        startActivity(context, activityClass, bundle, false);
+    }
+
+    public static void startActivity(Context context, Class<?> activityClass, Bundle bundle, boolean addNewTaskFlag)
     {
         Intent intent = new Intent(context, activityClass);
 
@@ -28,6 +34,13 @@ public class Utils
         {
             intent.putExtras(bundle);
         }
+
+        if (addNewTaskFlag)
+        {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
+
+        intent.setData(Uri.parse("liuwei:host/path?query=1"));
 
         context.startActivity(intent);
     }

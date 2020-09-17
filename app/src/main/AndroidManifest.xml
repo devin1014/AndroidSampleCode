@@ -77,7 +77,9 @@
         <activity android:name=".feature.architecture.eventbus.EventBusDemoActivity" />
         <activity android:name=".feature.architecture.eventbus.EventBusDetailActivity" />
         <activity android:name=".feature.widget.autosizetextview.AutoSizeTextViewActivity" />
-        <activity android:name=".feature.ui.theme.DayNightDemoActivity" />
+        <activity
+            android:name=".feature.ui.theme.DayNightDemoActivity"
+            android:theme="@style/DayNightDemoActivity" />
         <activity android:name=".feature.ui.demo.SimpleDemoActivity" />
         <activity
             android:name=".feature.process.car.RemoteCarActivity"
@@ -99,6 +101,7 @@
         <activity android:name=".feature.ui.scrollview.ScrollViewHolder" />
         <activity android:name=".feature.ui.scrollview.ScrollViewRecyclerViewActivity" />
         <activity android:name=".feature.widget.ImageTextView.ImageTextViewActivity" />
+        <activity android:name=".feature.ui.data.IntentDataActivity" />
 
         <!--################################-->
         <!--service-->
