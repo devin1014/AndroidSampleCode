@@ -103,6 +103,7 @@
         <activity android:name=".feature.widget.ImageTextView.ImageTextViewActivity" />
         <activity android:name=".feature.ui.data.IntentDataActivity" />
         <activity android:name=".feature.ui.viewpager.ViewPagerDemoActivity" />
+        <activity android:name=".feature.ui.popupwindow.PopupWindowActivity" />
 
         <!--################################-->
         <!--service-->

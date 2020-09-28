@@ -18,6 +18,7 @@ import com.android.liuwei.myandroidcode.feature.ui.fragment.FragmentActivity;
 import com.android.liuwei.myandroidcode.feature.ui.link.LinkActivity;
 import com.android.liuwei.myandroidcode.feature.ui.orientation.OrientationActivity;
 import com.android.liuwei.myandroidcode.feature.ui.performance.PerformanceActivity;
+import com.android.liuwei.myandroidcode.feature.ui.popupwindow.PopupWindowActivity;
 import com.android.liuwei.myandroidcode.feature.ui.scrollview.ScrollViewHolder;
 import com.android.liuwei.myandroidcode.feature.ui.service.ServiceActivity;
 import com.android.liuwei.myandroidcode.feature.ui.theme.DayNightDemoActivity;
@@ -70,6 +71,7 @@ public class MenuList
         MENU_LIST.add(new MenuInfo("ImageTextView", ImageTextViewActivity.class, extra));
         MENU_LIST.add(new MenuInfo("Uri", IntentDataActivity.class, extra));
         MENU_LIST.add(new MenuInfo("ViewPager", ViewPagerDemoActivity.class, extra));
+        MENU_LIST.add(new MenuInfo("PopupWindow", PopupWindowActivity.class, extra));
 
         Collections.sort(MENU_LIST, new Comparator<MenuInfo>()
         {
