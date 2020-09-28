@@ -102,6 +102,7 @@
         <activity android:name=".feature.ui.scrollview.ScrollViewRecyclerViewActivity" />
         <activity android:name=".feature.widget.ImageTextView.ImageTextViewActivity" />
         <activity android:name=".feature.ui.data.IntentDataActivity" />
+        <activity android:name=".feature.ui.viewpager.ViewPagerDemoActivity" />
 
         <!--################################-->
         <!--service-->
